@@ -1,0 +1,1031 @@
+/* =========================
+   1. Imports & Variables
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+
+:root {
+    color-scheme: light dark;
+    /* Theme Colors */
+    --colour-text: light-dark(#000000, #ffffff);
+    --colour-surface-dark: light-dark(#333333, #f0f0f0);
+    --colour-surface-light: light-dark(#666666, #cccccc);
+    --colour-background-dark: light-dark(#999999, #888888);
+    --colour-background-light: light-dark(#cccccc, #222222);
+    --colour-background: light-dark(#ffffff, #181a1b);
+    /* Additional accent colors */
+    --colour-primary: light-dark(#4a6eb5, #8cb4ff);
+    --colour-secondary: light-dark(#6b4a8c, #bfa6e0);
+    --colour-success: light-dark(#4a8c64, #7fffd4);
+    --colour-warning: light-dark(#d9a441, #ffe29a);
+    --colour-danger: light-dark(#c94a4a, #ffb3b3);
+    /* --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.525); */
+    /* Spacing variables */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --shadow: 0 4px 16px 0 rgba(247, 243, 243, 0.297);
+}
+
+html[data-theme="light"] {
+    color-scheme: light;
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.525);
+}
+
+/* =========================
+   2. Base & Reset
+   ========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Lato", Tahoma, sans-serif;
+    line-height: 1.6;
+    color: var(--colour-text);
+    background-color: var(--colour-background);
+    padding: var(--space-md);
+}
+
+/* =========================
+   3. Layout (container, grid, flex)
+   ========================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--colour-background-light);
+}
+
+footer {
+    margin-top: var(--space-xl);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--colour-background-light);
+    text-align: center;
+    color: var(--colour-surface-light);
+}
+
+section {
+    margin-bottom: var(--space-xl);
+}
+
+/* Grid & Flex Utilities */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-md);
+}
+
+/* Make a single .card in a .grid span all 12 columns */
+.grid:has(> .card:only-child) > .card {
+    grid-column: span 12;
+}
+
+.col-1 {
+    grid-column: span 1;
+}
+
+.col-2 {
+    grid-column: span 2;
+}
+
+.col-3 {
+    grid-column: span 3;
+}
+
+.col-4 {
+    grid-column: span 4;
+}
+
+.col-5 {
+    grid-column: span 5;
+}
+
+.col-6 {
+    grid-column: span 6;
+}
+
+.col-7 {
+    grid-column: span 7;
+}
+
+.col-8 {
+    grid-column: span 8;
+}
+
+.col-9 {
+    grid-column: span 9;
+}
+
+.col-10 {
+    grid-column: span 10;
+}
+
+.col-11 {
+    grid-column: span 11;
+}
+
+.col-12 {
+    grid-column: span 12;
+}
+
+@media (max-width: 768px) {
+    .col-md-1 {
+        grid-column: span 1;
+    }
+
+    .col-md-2 {
+        grid-column: span 2;
+    }
+
+    .col-md-3 {
+        grid-column: span 3;
+    }
+
+    .col-md-4 {
+        grid-column: span 4;
+    }
+
+    .col-md-5 {
+        grid-column: span 5;
+    }
+
+    .col-md-6 {
+        grid-column: span 6;
+    }
+
+    .col-md-7 {
+        grid-column: span 7;
+    }
+
+    .col-md-8 {
+        grid-column: span 8;
+    }
+
+    .col-md-9 {
+        grid-column: span 9;
+    }
+
+    .col-md-10 {
+        grid-column: span 10;
+    }
+
+    .col-md-11 {
+        grid-column: span 11;
+    }
+
+    .col-md-12 {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-sm-1 {
+        grid-column: span 1;
+    }
+
+    .col-sm-2 {
+        grid-column: span 2;
+    }
+
+    .col-sm-3 {
+        grid-column: span 3;
+    }
+
+    .col-sm-4 {
+        grid-column: span 4;
+    }
+
+    .col-sm-5 {
+        grid-column: span 5;
+    }
+
+    .col-sm-6 {
+        grid-column: span 6;
+    }
+
+    .col-sm-7 {
+        grid-column: span 7;
+    }
+
+    .col-sm-8 {
+        grid-column: span 8;
+    }
+
+    .col-sm-9 {
+        grid-column: span 9;
+    }
+
+    .col-sm-10 {
+        grid-column: span 10;
+    }
+
+    .col-sm-11 {
+        grid-column: span 11;
+    }
+
+    .col-sm-12 {
+        grid-column: span 12;
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* Flexbox row layout for wrapping cards and colour swatches */
+.wrapped-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: space-evenly;
+    align-items: stretch;
+    margin-bottom: var(--space-lg);
+}
+
+.wrapped-row > .card {
+    flex: 1 1 260px;
+    max-width: 340px;
+    min-width: 180px;
+    margin: 0;
+    /* Ensure cards stretch evenly */
+    align-self: stretch;
+}
+
+@media (max-width: 768px) {
+    .wrapped-row {
+        gap: var(--space-sm);
+    }
+
+    .wrapped-row>* {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .wrapped-row>.card {
+        flex-basis: 48%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapped-row {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .wrapped-row>.card {
+        flex-basis: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+
+/* Make .card directly under .content fill width and have even horizontal margin like grid items */
+.content > .card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+/* =========================
+   4. Typography
+   ========================= */
+.font-sans-family {
+    font-family: "Lato", Tahoma, sans-serif;
+}
+
+.font-sans-lato {
+    font-family: "Lato";
+}
+
+.font-sans-tahoma {
+    font-family: Tahoma;
+}
+
+.font-sans {
+    font-family: sans-serif;
+}
+
+.font-serif-family {
+    font-family: "Crimson Text", Georgia, serif;
+}
+
+.font-serif-crimson-text {
+    font-family: "Crimson Text";
+}
+
+.font-serif-georgia {
+    font-family: Georgia;
+}
+
+.font-serif {
+    font-family: serif;
+}
+
+.font-mono-family {
+    font-family: "Ubuntu Mono", "Courier New", monospace;
+}
+
+.font-mono-ubuntu-mono {
+    font-family: "Ubuntu Mono";
+}
+
+.font-mono-courier-new {
+    font-family: "Courier New";
+}
+
+.font-mono {
+    font-family: monospace;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalise {
+    text-transform: capitalize;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-base {
+    font-size: 1rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+/* =========================
+   5. Components
+   ========================= */
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--colour-surface-dark);
+    color: var(--colour-background);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Lato", Tahoma, sans-serif;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: var(--colour-primary);
+}
+
+.btn-secondary {
+    background-color: var(--colour-secondary);
+}
+
+.btn-success {
+    background-color: var(--colour-success);
+}
+
+.btn-warning {
+    background-color: var(--colour-warning);
+}
+
+.btn-danger {
+    background-color: var(--colour-danger);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--colour-surface-dark);
+    color: var(--colour-surface-dark);
+}
+
+/* --- Cards --- */
+.card {
+    padding: var(--space-md);
+    margin: var(--space-md);
+    color: var(--colour-background-light);
+    background-color: var(--colour-primary);
+    box-shadow: 0 8px 16px 0 var(--shadow);
+    transition: 0.3s;
+    max-width: 90%;
+    border-radius: 0.39em;
+    min-width: 10em;
+    min-height: fit-content;
+}
+
+.card:hover {
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    margin-bottom: var(--space-sm);
+    font-weight: bold;
+}
+
+.card-body {
+    margin-bottom: var(--space-sm);
+}
+
+.card-footer {
+    margin-top: auto;
+    font-size: 0.875rem;
+}
+
+/* --- Alerts --- */
+.alert {
+    padding: var(--space-md);
+    border-radius: 4px;
+    margin-bottom: var(--space-md);
+    border-left: 4px solid var(--colour-surface-dark);
+}
+
+.alert-primary {
+    background-color: rgba(74, 110, 181, 0.1);
+    border-left-color: var(--colour-primary);
+}
+
+.alert-secondary {
+    background-color: rgba(107, 74, 140, 0.1);
+    border-left-color: var(--colour-secondary);
+}
+
+.alert-success {
+    background-color: rgba(74, 140, 100, 0.1);
+    border-left-color: var(--colour-success);
+}
+
+.alert-warning {
+    background-color: rgba(217, 164, 65, 0.1);
+    border-left-color: var(--colour-warning);
+}
+
+.alert-danger {
+    background-color: rgba(201, 74, 74, 0.1);
+    border-left-color: var(--colour-danger);
+}
+
+/* --- Badges --- */
+.badge {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background-color: var(--colour-surface-dark);
+    color: var(--colour-background);
+}
+
+.badge-primary {
+    background-color: var(--colour-primary);
+}
+
+.badge-secondary {
+    background-color: var(--colour-secondary);
+}
+
+.badge-success {
+    background-color: var(--colour-success);
+}
+
+.badge-warning {
+    background-color: var(--colour-warning);
+}
+
+.badge-danger {
+    background-color: var(--colour-danger);
+}
+
+/* --- Forms --- */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+fieldset {
+    border: 1px solid var(--colour-background-light);
+    padding: var(--space-md);
+    border-radius: 4px;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--colour-background-light);
+    border-radius: 4px;
+    font-family: "Lato", Tahoma, sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--colour-primary);
+    box-shadow: 0 0 0 2px rgba(74, 110, 181, 0.2);
+}
+
+/* --- Tables --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--space-md);
+}
+
+th,
+td {
+    padding: var(--space-sm);
+    text-align: left;
+    border-bottom: 1px solid var(--colour-background-light);
+}
+
+th {
+    font-weight: bold;
+    background-color: rgba(204, 204, 204, 0.099);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(204, 204, 204, 0.2);
+}
+
+/* --- Accordion --- */
+details {
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--colour-background-light);
+    border-radius: 4px;
+}
+
+details summary {
+    padding: var(--space-md);
+    background-color: var(--colour-background);
+    border-bottom: 0.25em solid var(--colour-surface-dark);
+    cursor: pointer;
+    list-style: none;
+    font-weight: bold;
+}
+
+details summary::after {
+    content: "▼";
+    float: right;
+    font-size: 0.8em;
+    transition: transform 0.2s;
+}
+
+details[open] summary {
+    border-bottom: 0.25em solid var(--colour-background-light);
+    color: var(--colour-surface-dark);
+}
+
+details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+details .content {
+    padding: var(--space-md);
+}
+
+/* --- Lists --- */
+ul,
+ol {
+    margin-left: var(--space-xl);
+    margin-bottom: var(--space-md);
+}
+
+li {
+    margin-bottom: var(--space-xs);
+}
+
+/* --- Code (for inline code only, highlight.js handles blocks) --- */
+code {
+    font-family: "Ubuntu Mono", "Courier New", monospace;
+    padding: var(--space-xs);
+    background: var(--colour-background-light);
+    color: var(--colour-surface-dark);
+    border-radius: var(--space-xs);
+}
+
+/* =========================
+   6. Utilities (margin, padding, width, etc.)
+   ========================= */
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-1 {
+    margin-top: var(--space-xs);
+}
+
+.mt-2 {
+    margin-top: var(--space-sm);
+}
+
+.mt-3 {
+    margin-top: var(--space-md);
+}
+
+.mt-4 {
+    margin-top: var(--space-lg);
+}
+
+.mt-5 {
+    margin-top: var(--space-xl);
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: var(--space-xs);
+}
+
+.mb-2 {
+    margin-bottom: var(--space-sm);
+}
+
+.mb-3 {
+    margin-bottom: var(--space-md);
+}
+
+.mb-4 {
+    margin-bottom: var(--space-lg);
+}
+
+.mb-5 {
+    margin-bottom: var(--space-xl);
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: var(--space-xs);
+}
+
+.p-2 {
+    padding: var(--space-sm);
+}
+
+.p-3 {
+    padding: var(--space-md);
+}
+
+.p-4 {
+    padding: var(--space-lg);
+}
+
+.p-5 {
+    padding: var(--space-xl);
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* Compound utility classes for grid/flex examples */
+.grid-box {
+    text-align: center;
+    padding: 10px;
+}
+
+.flex-box {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+.flex-box-30 {
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+}
+
+.flex-box-70 {
+    width: 100px;
+    height: 70px;
+    margin: 5px;
+}
+
+/* Container demo utility */
+.container-demo {
+    background-color: var(--colour-background-light);
+    color: var(--colour-surface-dark);
+    padding: 10px;
+    text-align: center;
+}
+
+/* =========================
+   7. Theme & Color Utilities
+   ========================= */
+.background-colour-text {
+    background: var(--colour-text);
+}
+
+.background-colour-darkest {
+    background: var(--colour-surface-dark);
+}
+
+.background-colour-darker {
+    background: var(--colour-surface-light);
+}
+
+.background-colour-lighter {
+    background: var(--colour-background-dark);
+}
+
+.background-colour-lightest {
+    background: var(--colour-background-light);
+}
+
+.background-colour-background {
+    background: var(--colour-background);
+}
+
+.background-colour-primary {
+    background: var(--colour-primary);
+}
+
+.background-colour-secondary {
+    background: var(--colour-secondary);
+}
+
+.background-colour-success {
+    background: var(--colour-success);
+}
+
+.background-colour-warning {
+    background: var(--colour-warning);
+}
+
+.background-colour-danger {
+    background: var(--colour-danger);
+}
+
+.text-colour-text {
+    color: var(--colour-text);
+}
+
+.text-colour-darkest {
+    color: var(--colour-surface-dark);
+}
+
+.text-colour-darker {
+    color: var(--colour-surface-light);
+}
+
+.text-colour-lighter {
+    color: var(--colour-background-dark);
+}
+
+.text-colour-lightest {
+    color: var(--colour-background-light);
+}
+
+.text-colour-background {
+    color: var(--colour-background);
+}
+
+.text-colour-primary {
+    color: var(--colour-primary);
+}
+
+.text-colour-secondary {
+    color: var(--colour-secondary);
+}
+
+.text-colour-success {
+    color: var(--colour-success);
+}
+
+.text-colour-warning {
+    color: var(--colour-warning);
+}
+
+.text-colour-danger {
+    color: var(--colour-danger);
+}
+
+/* =========================
+   8. Miscellaneous & Examples
+   ========================= */
+.section-title {
+    border-bottom: 1px solid var(--colour-background-light);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.centred-item {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bg-lightest {
+    background-color: var(--colour-background-light) !important;
+}
+
+.bg-lighter {
+    background-color: var(--colour-background-dark) !important;
+}
+
+.bg-darkest {
+    background-color: var(--colour-surface-dark) !important;
+}
+
+.bg-primary {
+    background-color: var(--colour-primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--colour-secondary) !important;
+}
+
+.bg-success {
+    background-color: var(--colour-success) !important;
+}
+
+.text-darkest {
+    color: var(--colour-surface-dark) !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+}
+
+nav menu {
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 var(--space-sm);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--colour-surface-dark);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--colour-primary);
+}
+
+.colour-box {
+    width: 100%;
+    height: 100px;
+    border-radius: 4px;
+    margin-bottom: var(--space-sm);
+}
