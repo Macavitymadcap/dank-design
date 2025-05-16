@@ -1,0 +1,30 @@
+.card {
+    padding: var(--space-md);
+    margin: var(--space-md);
+    color: var(--colour-surface-highest);
+    background-color: var(--colour-primary);
+    box-shadow: 0 8px 16px 0 var(--shadow);
+    transition: 0.3s;
+    max-width: 90%;
+    border-radius: 0.39em;
+    min-width: 10em;
+    min-height: fit-content;
+}
+
+.card:hover {
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    margin-bottom: var(--space-sm);
+    font-weight: bold;
+}
+
+.card-body {
+    margin-bottom: var(--space-sm);
+}
+
+.card-footer {
+    margin-top: auto;
+    font-size: 0.875rem;
+}

@@ -1,0 +1,147 @@
+.form-group {
+    margin-bottom: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+label[for="theme-toggle"] {
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Ensure selects and textareas always stretch in all contexts */
+select,
+textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: inline-block !important;
+    flex: 0 1 0 !important;
+    align-self: stretch !important;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+textarea,
+select {
+    padding: var(--space-sm);
+    border: 1px solid var(--colour-surface-highest);
+    border-radius: 4px;
+    font-family: "Lato", Tahoma, sans-serif;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    flex: 1 1 0%;
+    align-self: stretch;
+}
+
+.switch {
+    margin: 0;
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    background: var(--colour-surface-lowest);
+    height: 1.65rem;
+    width: 2.75rem;
+    vertical-align: middle;
+    border-radius: 2rem;
+    box-shadow: 0 1px 3px var(--colour-switch-toggle) inset;
+    transition: 0.25s linear background;
+}
+
+.switch::before {
+    content: '';
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: var(--colour-switch-toggle);
+    background-color: var(--colour-switch-toggle);
+    border-radius: 1.2rem;
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    box-shadow: 0 1px 3px var(--colour-switch-toggle);
+    transition: 0.25s linear transform;
+    transform: translateX(0rem);
+}
+
+.switch:checked {
+    background-color: var(--colour-success);
+}
+
+.switch:not(:checked):focus-visible {
+    background-color: var(--colour-success);
+}
+
+.switch:checked::before {
+    transform: translateX(1rem);
+}
+
+.switch:focus-visible {
+    outline: 2px solid var(--colour-switch-toggle);
+    outline-offset: 2px;
+}
+
+.form-group,
+.grid > .form-group,
+.wrapped-row > .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group > label,
+.form-group > span,
+.form-group > legend {
+    flex: 0 0 auto;
+}
+
+.form-group > input,
+.form-group > select,
+.form-group > textarea {
+    flex: 1 1 0;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+fieldset {
+    border: 1px solid var(--colour-surface-highest);
+    padding: var(--space-md);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: var(--space-sm);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: bold;
+}
+
+label:has(input[type="checkbox"]) {
+    * {
+        display: block;
+    }
+}
