@@ -1,0 +1,41 @@
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* Flexbox row layout for wrapping cards and colour swatches */
+.wrapped-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: space-evenly;
+    align-items: stretch;
+    margin-bottom: var(--space-lg);
+}
+
+.wrapped-row > .card {
+    flex: 1 1 260px;
+    min-width: 180px;
+    margin: 0;
+    align-self: stretch;
+}
+

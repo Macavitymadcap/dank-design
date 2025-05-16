@@ -3,9 +3,9 @@ class ThemeManager {
     constructor() {
         if (ThemeManager.instance) return ThemeManager.instance;
         this.html = document.documentElement;
-        this.darkLink = document.getElementById("hljs-theme");
-        this.lightLink = document.getElementById("hljs-theme-light");
-        this.toggleBtn = document.getElementById("theme-toggle");
+        this.darkLink = htmx.find("#hljs-theme");
+        this.lightLink = htmx.find("#hljs-theme-light");
+        this.themeSwitch = htmx.find("#theme-toggle");
         this.init();
         ThemeManager.instance = this;
     }
@@ -29,8 +29,8 @@ class ThemeManager {
     }
 
     bindThemeToggleEvent() {
-        if (this.toggleBtn) {
-            this.toggleBtn.addEventListener("click", () => {
+        if (this.themeSwitch) {
+            this.themeSwitch.addEventListener("change", () => {
                 this.setTheme(
                     this.html.getAttribute("data-theme") === "dark"
                         ? "light"
@@ -61,7 +61,7 @@ class ThemeManager {
 new ThemeManager();
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("pre code").forEach((block) => {
+    htmx.findAll("pre code").forEach((block) => {
         window.hljs && window.hljs.highlightElement(block);
     });
 });
