@@ -9,10 +9,10 @@
     color-scheme: light dark;
     /* Theme Colors */
     --colour-text: light-dark(#000000, #ffffff);
-    --colour-surface-dark: light-dark(#333333, #f0f0f0);
-    --colour-surface-light: light-dark(#666666, #cccccc);
-    --colour-background-dark: light-dark(#999999, #888888);
-    --colour-background-light: light-dark(#cccccc, #222222);
+    --colour-surface-lowest: light-dark(#333333, #f0f0f0);
+    --colour-surface-low: light-dark(#666666, #cccccc);
+    --colour-surface-high: light-dark(#999999, #888888);
+    --colour-surface-highest: light-dark(#cccccc, #222222);
     --colour-background: light-dark(#ffffff, #181a1b);
     /* Additional accent colors */
     --colour-primary: light-dark(#4a6eb5, #8cb4ff);
@@ -83,15 +83,15 @@ main {
 header {
     padding: var(--space-md) 0;
     margin-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--colour-background-light);
+    border-bottom: 1px solid var(--colour-surface-highest);
 }
 
 footer {
     margin-top: var(--space-xl);
     padding: var(--space-md) 0;
-    border-top: 1px solid var(--colour-background-light);
+    border-top: 1px solid var(--colour-surface-highest);
     text-align: center;
-    color: var(--colour-surface-light);
+    color: var(--colour-surface-low);
 }
 
 section {
@@ -102,7 +102,7 @@ section {
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: var(--space-md);
+    gap: var(--space-sm);
 }
 
 /* Make a single .card in a .grid span all 12 columns */
@@ -294,10 +294,8 @@ section {
 
 .wrapped-row > .card {
     flex: 1 1 260px;
-    max-width: 340px;
     min-width: 180px;
     margin: 0;
-    /* Ensure cards stretch evenly */
     align-self: stretch;
 }
 
@@ -342,6 +340,7 @@ section {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
 }
+
 
 /* =========================
    4. Typography
@@ -469,7 +468,7 @@ section {
 .btn {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
-    background-color: var(--colour-surface-dark);
+    background-color: var(--colour-surface-lowest);
     color: var(--colour-background);
     border: none;
     border-radius: 4px;
@@ -506,15 +505,15 @@ section {
 
 .btn-outline {
     background-color: transparent;
-    border: 2px solid var(--colour-surface-dark);
-    color: var(--colour-surface-dark);
+    border: 2px solid var(--colour-surface-lowest);
+    color: var(--colour-surface-lowest);
 }
 
 /* --- Cards --- */
 .card {
     padding: var(--space-md);
     margin: var(--space-md);
-    color: var(--colour-background-light);
+    color: var(--colour-surface-highest);
     background-color: var(--colour-primary);
     box-shadow: 0 8px 16px 0 var(--shadow);
     transition: 0.3s;
@@ -547,7 +546,7 @@ section {
     padding: var(--space-md);
     border-radius: 4px;
     margin-bottom: var(--space-md);
-    border-left: 4px solid var(--colour-surface-dark);
+    border-left: 4px solid var(--colour-surface-lowest);
 }
 
 .alert-primary {
@@ -582,7 +581,7 @@ section {
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: bold;
-    background-color: var(--colour-surface-dark);
+    background-color: var(--colour-surface-lowest);
     color: var(--colour-background);
 }
 
@@ -609,12 +608,82 @@ section {
 /* --- Forms --- */
 .form-group {
     margin-bottom: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+/* Ensure selects and textareas always stretch in all contexts */
+select,
+textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: inline-block !important;
+    flex: 0 1 0 !important;
+    align-self: stretch !important;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+textarea,
+select {
+    padding: var(--space-sm);
+    border: 1px solid var(--colour-surface-highest);
+    border-radius: 4px;
+    font-family: "Lato", Tahoma, sans-serif;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    flex: 1 1 0%;
+    align-self: stretch;
+}
+
+/* Fix for flex/grid parents: force selects and textareas to fill parent */
+.form-group,
+.grid > .form-group,
+.wrapped-row > .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group > label,
+.form-group > span,
+.form-group > legend {
+    flex: 0 0 auto;
+}
+
+.form-group > input,
+.form-group > select,
+.form-group > textarea {
+    flex: 1 1 0;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 fieldset {
-    border: 1px solid var(--colour-background-light);
+    border: 1px solid var(--colour-surface-highest);
     padding: var(--space-md);
     border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 legend {
@@ -628,42 +697,25 @@ label {
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
-    width: 100%;
-    padding: var(--space-sm);
-    border: 1px solid var(--colour-background-light);
-    border-radius: 4px;
-    font-family: "Lato", Tahoma, sans-serif;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: var(--colour-primary);
-    box-shadow: 0 0 0 2px rgba(74, 110, 181, 0.2);
-}
-
 /* --- Tables --- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: var(--space-md);
+    min-width: 600px;
 }
 
 th,
 td {
     padding: var(--space-sm);
     text-align: left;
-    border-bottom: 1px solid var(--colour-background-light);
+    border-bottom: 1px solid var(--colour-surface-highest);
 }
 
 th {
@@ -675,17 +727,31 @@ tr:nth-child(even) {
     background-color: rgba(204, 204, 204, 0.2);
 }
 
+@media (max-width: 600px) {
+    .table-responsive {
+        /* Ensure the wrapper always allows scrolling */
+        overflow-x: auto;
+    }
+    table {
+        min-width: 400px;
+        font-size: 0.9rem;
+    }
+    th, td {
+        padding: var(--space-xs);
+    }
+}
+
 /* --- Accordion --- */
 details {
     margin-bottom: var(--space-md);
-    border: 1px solid var(--colour-background-light);
+    border: 1px solid var(--colour-surface-highest);
     border-radius: 4px;
 }
 
 details summary {
     padding: var(--space-md);
     background-color: var(--colour-background);
-    border-bottom: 0.25em solid var(--colour-surface-dark);
+    border-bottom: 0.25em solid var(--colour-surface-lowest);
     cursor: pointer;
     list-style: none;
     font-weight: bold;
@@ -699,8 +765,8 @@ details summary::after {
 }
 
 details[open] summary {
-    border-bottom: 0.25em solid var(--colour-background-light);
-    color: var(--colour-surface-dark);
+    border-bottom: 0.25em solid var(--colour-surface-highest);
+    color: var(--colour-surface-lowest);
 }
 
 details[open] summary::after {
@@ -726,8 +792,8 @@ li {
 code {
     font-family: "Ubuntu Mono", "Courier New", monospace;
     padding: var(--space-xs);
-    background: var(--colour-background-light);
-    color: var(--colour-surface-dark);
+    background: var(--colour-surface-highest);
+    color: var(--colour-surface-lowest);
     border-radius: var(--space-xs);
 }
 
@@ -848,8 +914,8 @@ code {
 
 /* Container demo utility */
 .container-demo {
-    background-color: var(--colour-background-light);
-    color: var(--colour-surface-dark);
+    background-color: var(--colour-surface-highest);
+    color: var(--colour-surface-lowest);
     padding: 10px;
     text-align: center;
 }
@@ -862,19 +928,19 @@ code {
 }
 
 .background-colour-darkest {
-    background: var(--colour-surface-dark);
+    background: var(--colour-surface-lowest);
 }
 
 .background-colour-darker {
-    background: var(--colour-surface-light);
+    background: var(--colour-surface-low);
 }
 
 .background-colour-lighter {
-    background: var(--colour-background-dark);
+    background: var(--colour-surface-high);
 }
 
 .background-colour-lightest {
-    background: var(--colour-background-light);
+    background: var(--colour-surface-highest);
 }
 
 .background-colour-background {
@@ -906,19 +972,19 @@ code {
 }
 
 .text-colour-darkest {
-    color: var(--colour-surface-dark);
+    color: var(--colour-surface-lowest);
 }
 
 .text-colour-darker {
-    color: var(--colour-surface-light);
+    color: var(--colour-surface-low);
 }
 
 .text-colour-lighter {
-    color: var(--colour-background-dark);
+    color: var(--colour-surface-high);
 }
 
 .text-colour-lightest {
-    color: var(--colour-background-light);
+    color: var(--colour-surface-highest);
 }
 
 .text-colour-background {
@@ -949,7 +1015,7 @@ code {
    8. Miscellaneous & Examples
    ========================= */
 .section-title {
-    border-bottom: 1px solid var(--colour-background-light);
+    border-bottom: 1px solid var(--colour-surface-highest);
     padding-bottom: var(--space-sm);
     margin-bottom: var(--space-md);
 }
@@ -961,15 +1027,15 @@ code {
 }
 
 .bg-lightest {
-    background-color: var(--colour-background-light) !important;
+    background-color: var(--colour-surface-highest) !important;
 }
 
 .bg-lighter {
-    background-color: var(--colour-background-dark) !important;
+    background-color: var(--colour-surface-high) !important;
 }
 
 .bg-darkest {
-    background-color: var(--colour-surface-dark) !important;
+    background-color: var(--colour-surface-lowest) !important;
 }
 
 .bg-primary {
@@ -985,7 +1051,7 @@ code {
 }
 
 .text-darkest {
-    color: var(--colour-surface-dark) !important;
+    color: var(--colour-surface-lowest) !important;
 }
 
 .text-center {
@@ -1014,7 +1080,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: var(--colour-surface-dark);
+    color: var(--colour-surface-lowest);
     font-weight: bold;
     transition: color 0.3s;
 }
@@ -1028,4 +1094,41 @@ nav a:hover {
     height: 100px;
     border-radius: 4px;
     margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--space-xs);
+        font-size: 0.95rem;
+    }
+    .container,
+    main {
+        padding: 0 var(--space-xs);
+        gap: var(--space-sm);
+    }
+    .card {
+        padding: var(--space-sm);
+        margin: var(--space-xs) 0;
+        font-size: 0.95rem;
+    }
+    .content > .card {
+        padding-left: var(--space-xs);
+        padding-right: var(--space-xs);
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 90%;
+    }
+    .wrapped-row {
+        gap: var(--space-xs);
+    }
+    .form-group {
+        margin-bottom: var(--space-xs);
+    }
+    table {
+        font-size: 0.9rem;
+        min-width: 400px;
+    }
+    th, td {
+        padding: var(--space-xs);
+    }
 }
