@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pattern Library</title>
+    <title>Dank Design</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <link id="hljs-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" disabled>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="container">
             <h1 class="text-center">Dank Design</h1>
             <p class="text-center text-colour-darker">
@@ -24,14 +26,16 @@
     </header>
 
     <nav class="container">
-        <menu>
-            <li><a href="#colours">Colours</a></li>
-            <li><a href="#elements">Elements</a></li>
-            <li><a href="#components">Components</a></li>
-            <li><a href="#layout">Layout</a></li>
-            <li><a href="#animations">Animations</a></li>
-            <li><a href="#utilities">Utilities</a></li>
-            <li><a href="#typography">Typography</a></li>
+        <menu 
+        x-data="{ openDetails: function(id) { htmx.find(id).open = 'true' } }" 
+        class="menu">
+            <li><a href="#colours" @click="openDetails('#colours')">Colours</a></li>
+            <li><a href="#elements" @click="openDetails('#elements')">Elements</a></li>
+            <li><a href="#components" @click="openDetails('#components')">Components</a></li>
+            <li><a href="#layout" @click="openDetails('#layout')">Layout</a></li>
+            <li><a href="#animations" @click="openDetails('#animations')">Animations</a></li>
+            <li><a href="#utilities" @click="openDetails('#utilities')">Utilities</a></li>
+            <li><a href="#typography" @click="openDetails('#typography')">Typography</a></li>
         </menu>
     </nav>
 
@@ -46,20 +50,20 @@
                         <p><code>--colour-background</code></p>
                     </div>
                     <div class="card">
-                        <div class="colour-box background-colour-lightest"></div>
-                        <p><code>--colour-surface-dark</code></p>
+                        <div class="colour-box background-colour-surface-lowest"></div>
+                        <p><code>--colour-surface-lowest</code></p>
                     </div>
                     <div class="card">
-                        <div class="colour-box background-colour-lighter"></div>
-                        <p><code>--colour-surface-light</code></p>
+                        <div class="colour-box background-colour-surface-low"></div>
+                        <p><code>--colour-surface-low</code></p>
                     </div>
                     <div class="card">
-                        <div class="colour-box background-colour-darker"></div>
-                        <p><code>--colour-background-dark</code></p>
+                        <div class="colour-box background-colour-surface-high"></div>
+                        <p><code>--colour-surface-high</code></p>
                     </div>
                     <div class="card">
-                        <div class="colour-box background-colour-darkest"></div>
-                        <p><code>--colour-background-light</code></p>
+                        <div class="colour-box background-colour-surface-highest"></div>
+                        <p><code>--colour-surface-highest</code></p>
                     </div>
                     <div class="card">
                         <div class="colour-box background-colour-text"></div>
@@ -90,6 +94,20 @@
                         <p><code>--colour-danger</code></p>
                     </div>
                 </div>
+
+                <h3 class="mt-4">Text Colors</h3>
+                <div class="card">
+                    <p class="text-colour-text">Default Text (.text-colour-text)</p>
+                    <p class="text-colour-surface-lowest">(.text-colour-surface-lowest)</p>
+                    <p class="text-colour-surface-low">(.text-colour-surface-low)</p>
+                    <p class="text-colour-surface-high">(.text-colour-surface-high)</p>
+                    <p class="text-colour-surface-highest">(.text-colour-surface-highest)</p>
+                    <p class="text-colour-primary background-colour-surface-highest">(.text-colour-primary)</p>
+                    <p class="text-colour-secondary background-colour-surface-highest">(.text-colour-secondary)</p>
+                    <p class="text-colour-success background-colour-surface-highest">(.text-colour-success)</p>
+                    <p class="text-colour-warning background-colour-surface-highest">(.text-colour-warning)</p>
+                    <p class="text-colour-danger background-colour-surface-highest">(.text-colour-danger)</p>
+                </div>
             </div>
         </details>
 
@@ -119,112 +137,130 @@
                 <div class="card">
                     <fieldset>
                         <legend>Fieldset</legend>
-                        <div class="form-group">
-                            <label for="text-input">Text Input</label>
-                            <input type="text" id="text-input" placeholder="Enter text...">
+                        <div class="grid">
+                            <div class="form-group col-3 col-md-6 col-sm-12">
+                                <label for="text-input">Text Input</label>
+                                <input type="text" id="text-input" placeholder="Enter text...">
+                            </div>
+                            <div class="form-group col-3 col-md-6 col-sm-12">
+                                <label for="number-input">Number Input</label>
+                                <input type="number" id="number-input" placeholder="Enter number...">
+                            </div>
+
+                            <div class="form-group col-3 col-md-6 col-sm-12">
+                                <label for="email-input">Email Input</label>
+                                <input type="email" id="email-input" placeholder="Enter email...">
+                            </div>
+
+                            <div class="form-group col-3 col-md-6 col-sm-12">
+                                <label for="password-input">Password Input</label>
+                                <input type="password" id="password-input" placeholder="Enter password...">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="number-input">Number Input</label>
-                            <input type="number" id="number-input" placeholder="Enter number...">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email-input">Email Input</label>
-                            <input type="email" id="email-input" placeholder="Enter email...">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="password-input">Password Input</label>
-                            <input type="password" id="password-input" placeholder="Enter password...">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="textarea">Textarea</label>
-                            <textarea id="textarea" rows="4" placeholder="Enter multiple lines of text..."></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="select">Select</label>
-                            <select id="select">
-                                <option value="">Select an option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                        </div>
+                        <div class="grid">
+                            <div class="form-group col-9 col-md-6 col-sm-12">
+                                <label for="textarea">Textarea</label>
+                                <textarea id="textarea" rows="4" placeholder="Enter multiple lines of text..."></textarea>
+                            </div>
 
+                            <div class="form-group col-3 col-md-6 col-sm-12">
+                                <label for="select">Select</label>
+                                <select id="select">
+                                    <option value="">Select an option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="grid">
+                            <div class="form-group col-4 col-md-6 col-sm-12">
+                                <label for="date">Date Input</label>
+                                <input type="date" id="date">
+                            </div>
+
+                            <div class="form-group col-4 col-md-6 col-sm-12">
+                                <label for="time">Time Input</label>
+                                <input type="time" id="time">
+                            </div>
+
+                            <div class="form-group col-4 col-md-12 col-sm-12">
+                                <label for="datetime-local">Datetime-local Input</label>
+                                <input type="datetime-local" id="datetime-local">
+                            </div>
+                        </div>
                     </fieldset>
                 </div>
 
                 <h3 class="mt-4">Tables</h3>
                 <div class="card">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>john@example.com</td>
-                                <td>Active</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jane Smith</td>
-                                <td>jane@example.com</td>
-                                <td>Inactive</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Bob Johnson</td>
-                                <td>bob@example.com</td>
-                                <td>Active</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td>Active</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jane Smith</td>
+                                    <td>jane@example.com</td>
+                                    <td>Inactive</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Bob Johnson</td>
+                                    <td>bob@example.com</td>
+                                    <td>Active</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <h3 class="mt-4">Lists</h3>
-                <div class="grid">
-                    <div class="col-6 col-sm-12">
-                        <div class="card">
-                            <h4>Unordered List</h4>
-                            <ul>
-                                <li>List item one</li>
-                                <li>List item two</li>
-                                <li>List item three
-                                    <ul>
-                                        <li>Nested item one</li>
-                                        <li>Nested item two</li>
-                                    </ul>
-                                </li>
-                                <li>List item four</li>
-                            </ul>
-                        </div>
+                <div class="wrapped-row">
+                    <div class="card">
+                        <h4>Unordered List</h4>
+                        <ul>
+                            <li>List item one</li>
+                            <li>List item two</li>
+                            <li>List item three
+                                <ul>
+                                    <li>Nested item one</li>
+                                    <li>Nested item two</li>
+                                </ul>
+                            </li>
+                            <li>List item four</li>
+                        </ul>
                     </div>
                     
-                    <div class="col-6 col-sm-12">
-                        <div class="card">
-                            <h4>Ordered List</h4>
-                            <ol>
-                                <li>First item</li>
-                                <li>Second item</li>
-                                <li>Third item
-                                    <ol>
-                                        <li>Nested first item</li>
-                                        <li>Nested second item</li>
-                                    </ol>
-                                </li>
-                                <li>Fourth item</li>
-                            </ol>
-                        </div>
+                    <div class="card">
+                        <h4>Ordered List</h4>
+                        <ol>
+                            <li>First item</li>
+                            <li>Second item</li>
+                            <li>Third item
+                                <ol>
+                                    <li>Nested first item</li>
+                                    <li>Nested second item</li>
+                                </ol>
+                            </li>
+                            <li>Fourth item</li>
+                        </ol>
                     </div>
                 </div>
 
@@ -510,138 +546,144 @@
             <div class="content">
                 <h3>Margin Utilities</h3>
                 <div class="card">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Class</th>
-                                <th>Property</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>.mt-0</code></td>
-                                <td>margin-top</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td><code>.mt-1</code></td>
-                                <td>margin-top</td>
-                                <td>0.25rem (4px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.mt-2</code></td>
-                                <td>margin-top</td>
-                                <td>0.5rem (8px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.mt-3</code></td>
-                                <td>margin-top</td>
-                                <td>1rem (16px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.mt-4</code></td>
-                                <td>margin-top</td>
-                                <td>1.5rem (24px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.mt-5</code></td>
-                                <td>margin-top</td>
-                                <td>2rem (32px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.mb-*</code></td>
-                                <td>margin-bottom</td>
-                                <td>Same scale as above</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Property</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>.mt-0</code></td>
+                                    <td>margin-top</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.mt-1</code></td>
+                                    <td>margin-top</td>
+                                    <td>0.25rem (4px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.mt-2</code></td>
+                                    <td>margin-top</td>
+                                    <td>0.5rem (8px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.mt-3</code></td>
+                                    <td>margin-top</td>
+                                    <td>1rem (16px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.mt-4</code></td>
+                                    <td>margin-top</td>
+                                    <td>1.5rem (24px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.mt-5</code></td>
+                                    <td>margin-top</td>
+                                    <td>2rem (32px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.mb-*</code></td>
+                                    <td>margin-bottom</td>
+                                    <td>Same scale as above</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
                 <h3 class="mt-4">Padding Utilities</h3>
                 <div class="card">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Class</th>
-                                <th>Property</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>.p-0</code></td>
-                                <td>padding</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td><code>.p-1</code></td>
-                                <td>padding</td>
-                                <td>0.25rem (4px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.p-2</code></td>
-                                <td>padding</td>
-                                <td>0.5rem (8px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.p-3</code></td>
-                                <td>padding</td>
-                                <td>1rem (16px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.p-4</code></td>
-                                <td>padding</td>
-                                <td>1.5rem (24px)</td>
-                            </tr>
-                            <tr>
-                                <td><code>.p-5</code></td>
-                                <td>padding</td>
-                                <td>2rem (32px)</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Property</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>.p-0</code></td>
+                                    <td>padding</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.p-1</code></td>
+                                    <td>padding</td>
+                                    <td>0.25rem (4px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.p-2</code></td>
+                                    <td>padding</td>
+                                    <td>0.5rem (8px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.p-3</code></td>
+                                    <td>padding</td>
+                                    <td>1rem (16px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.p-4</code></td>
+                                    <td>padding</td>
+                                    <td>1.5rem (24px)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.p-5</code></td>
+                                    <td>padding</td>
+                                    <td>2rem (32px)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
                 <h3 class="mt-4">Width Utilities</h3>
                 <div class="card">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Class</th>
-                                <th>Property</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>.w-25</code></td>
-                                <td>width</td>
-                                <td>25%</td>
-                            </tr>
-                            <tr>
-                                <td><code>.w-50</code></td>
-                                <td>width</td>
-                                <td>50%</td>
-                            </tr>
-                            <tr>
-                                <td><code>.w-75</code></td>
-                                <td>width</td>
-                                <td>75%</td>
-                            </tr>
-                            <tr>
-                                <td><code>.w-100</code></td>
-                                <td>width</td>
-                                <td>100%</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Property</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>.w-25</code></td>
+                                    <td>width</td>
+                                    <td>25%</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.w-50</code></td>
+                                    <td>width</td>
+                                    <td>50%</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.w-75</code></td>
+                                    <td>width</td>
+                                    <td>75%</td>
+                                </tr>
+                                <tr>
+                                    <td><code>.w-100</code></td>
+                                    <td>width</td>
+                                    <td>100%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     
                     <div class="mt-3">
-                        <div class="w-25 mb-2" style="background-color: var(--colour-surface-dark); color: var(--colour-darkest); padding: 10px;">.w-25</div>
-                        <div class="w-50 mb-2" style="background-color: var(--colour-surface-light); color: var(--colour-background); padding: 10px;">.w-50</div>
-                        <div class="w-75 mb-2" style="background-color: var(--colour-background-light); color: var(--colour-text); padding: 10px;">.w-75</div>
-                        <div class="w-100" style="background-color: var(--colour-background-dark); color: var(--colour-text); padding: 10px;">.w-100</div>
+                        <div class="w-25 mb-2" style="background-color: var(--colour-surface-lowest); color: var(--colour-darkest); padding: 10px;">.w-25</div>
+                        <div class="w-50 mb-2" style="background-color: var(--colour-surface-low); color: var(--colour-background); padding: 10px;">.w-50</div>
+                        <div class="w-75 mb-2" style="background-color: var(--colour-surface-highest); color: var(--colour-text); padding: 10px;">.w-75</div>
+                        <div class="w-100" style="background-color: var(--colour-surface-high); color: var(--colour-text); padding: 10px;">.w-100</div>
                     </div>
                 </div>
             </div>
@@ -651,47 +693,41 @@
             <summary>Typography</summary>
             <div class="content">
                 <h3>Font Families</h3>
-                <div class="grid">
-                    <div class="col-4 col-md-6 col-sm-12">
-                        <div class="card">
-                            <h4 class="font-sans-family">Sans-Serif</h4>
-                            <p class="font-sans-family">
-                                Lato, Tahoma, sans-serif
-                            </p>
-                            <p class="font-sans-family">
-                                <i>Italic: Lato, Tahoma, sans-serif</i>
-                            </p>
-                            <p class="font-sans-family">
-                                <b>Bold: Lato, Tahoma, sans-serif</b>
-                            </p>
-                            <p><code>.font-sans-family</code></p>
-                        </div>
+                <div class="wrapped-row">
+                    <div class="card">
+                        <h4 class="font-sans-family">Sans-Serif</h4>
+                        <p class="font-sans-family">
+                            Lato, Tahoma, sans-serif
+                        </p>
+                        <p class="font-sans-family">
+                            <i>Italic: Lato, Tahoma, sans-serif</i>
+                        </p>
+                        <p class="font-sans-family">
+                            <b>Bold: Lato, Tahoma, sans-serif</b>
+                        </p>
+                        <p><code>.font-sans-family</code></p>
                     </div>
-                    
-                    <div class="col-4 col-md-6 col-sm-12">
-                        <div class="card">
-                            <h4 class="font-serif-family">Serif</h4>
-                            <p class="font-serif-family">
-                                Crimson Text, Georgia, serif
-                            </p>
-                            <p class="font-serif-family">
-                                <i>Italic: Crimson Text, Georgia, serif</i>
-                            </p>
-                            <p class="font-serif-family">
-                                <b>Bold: Crimson Text, Georgia, serif</b>
-                            </p>
-                            <p><code>.font-serif-family</code></p>
-                        </div>
+                
+                    <div class="card">
+                        <h4 class="font-serif-family">Serif</h4>
+                        <p class="font-serif-family">
+                            Crimson Text, Georgia, serif
+                        </p>
+                        <p class="font-serif-family">
+                            <i>Italic: Crimson Text, Georgia, serif</i>
+                        </p>
+                        <p class="font-serif-family">
+                            <b>Bold: Crimson Text, Georgia, serif</b>
+                        </p>
+                        <p><code>.font-serif-family</code></p>
                     </div>
-                    
-                    <div class="col-4 col-md-6 col-sm-12">
-                        <div class="card">
-                            <h4 class="font-mono-family">Monospace</h4>
-                            <p class="font-mono-family">
-                                Ubuntu Mono, Courier New, monospace
-                            </p>
-                            <p><code>.font-mono-family</code></p>
-                        </div>
+                
+                    <div class="card">
+                        <h4 class="font-mono-family">Monospace</h4>
+                        <p class="font-mono-family">
+                            Ubuntu Mono, Courier New, monospace
+                        </p>
+                        <p><code>.font-mono-family</code></p>
                     </div>
                 </div>
 
@@ -706,24 +742,20 @@
                 </div>
 
                 <h3 class="mt-4">Text Utilities</h3>
-                <div class="grid">
-                    <div class="col-6 col-sm-12">
-                        <div class="card">
-                            <h4>Text Alignment</h4>
-                            <p class="text-left">Left aligned text</p>
-                            <p class="text-center">Center aligned text</p>
-                            <p class="text-right">Right aligned text</p>
-                            <p class="text-justify">Justified text. This paragraph contains a lot of text to demonstrate how justified text looks when it spans multiple lines. Notice how the text is stretched to fill the width of the container.</p>
-                        </div>
+                <div class="wrapped-row">
+                    <div class="card">
+                        <h4>Text Alignment</h4>
+                        <p class="text-left">Left aligned text</p>
+                        <p class="text-center">Center aligned text</p>
+                        <p class="text-right">Right aligned text</p>
+                        <p class="text-justify">Justified text. This paragraph contains a lot of text to demonstrate how justified text looks when it spans multiple lines. Notice how the text is stretched to fill the width of the container.</p>
                     </div>
-                    
-                    <div class="col-6 col-sm-12">
-                        <div class="card">
-                            <h4>Text Transformation</h4>
-                            <p class="text-uppercase">uppercase text</p>
-                            <p class="text-lowercase">LOWERCASE TEXT</p>
-                            <p class="text-capitalise">capitalized text</p>
-                        </div>
+                
+                    <div class="card">
+                        <h4>Text Transformation</h4>
+                        <p class="text-uppercase">uppercase text</p>
+                        <p class="text-lowercase">LOWERCASE TEXT</p>
+                        <p class="text-capitalise">capitalized text</p>
                     </div>
                 </div>
 
@@ -737,21 +769,7 @@
                     <p class="text-2xl">2X Large Text (.text-2xl)</p>
                     <p class="text-3xl">3X Large Text (.text-3xl)</p>
                     <p class="text-4xl">4X Large Text (.text-4xl)</p>
-                </div>
-
-                <h3 class="mt-4">Text Colors</h3>
-                <div class="card">
-                    <p class="text-colour-text">Default Text (.text-colour-text)</p>
-                    <p class="text-colour-darkest">Darkest Text (.text-colour-darkest)</p>
-                    <p class="text-colour-darker">Darker Text (.text-colour-darker)</p>
-                    <p class="text-colour-lighter">Lighter Text (.text-colour-lighter)</p>
-                    <p class="text-colour-lightest">Lightest Text (.text-colour-lightest)</p>
-                    <p class="text-colour-primary background-colour-lighter">Primary Text (.text-colour-primary)</p>
-                    <p class="text-colour-secondary">Secondary Text (.text-colour-secondary)</p>
-                    <p class="text-colour-success">Success Text (.text-colour-success)</p>
-                    <p class="text-colour-warning">Warning Text (.text-colour-warning)</p>
-                    <p class="text-colour-danger">Danger Text (.text-colour-danger)</p>
-                </div>
+                </div> 
             </div>
         </details>
     </main>
@@ -759,6 +777,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 <span class="text-colour-success">Dan K</span>iernan</p>
+            <a href="#header">Back to Top</a>
         </div>
     </footer>
 </body>
