@@ -1,0 +1,45 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    padding: var(--space-md) 0;
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--colour-surface-highest);
+}
+
+footer {
+    margin-top: var(--space-xl);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--colour-surface-highest);
+    text-align: center;
+    color: var(--colour-surface-low);
+}
+
+section {
+    margin-bottom: var(--space-xl);
+}
+
+/* Make .card directly under .content fill width and have 
+   even horizontal margin like grid items */
+.content > .card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}

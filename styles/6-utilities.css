@@ -1,0 +1,119 @@
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-1 {
+    margin-top: var(--space-xs);
+}
+
+.mt-2 {
+    margin-top: var(--space-sm);
+}
+
+.mt-3 {
+    margin-top: var(--space-md);
+}
+
+.mt-4 {
+    margin-top: var(--space-lg);
+}
+
+.mt-5 {
+    margin-top: var(--space-xl);
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: var(--space-xs);
+}
+
+.mb-2 {
+    margin-bottom: var(--space-sm);
+}
+
+.mb-3 {
+    margin-bottom: var(--space-md);
+}
+
+.mb-4 {
+    margin-bottom: var(--space-lg);
+}
+
+.mb-5 {
+    margin-bottom: var(--space-xl);
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: var(--space-xs);
+}
+
+.p-2 {
+    padding: var(--space-sm);
+}
+
+.p-3 {
+    padding: var(--space-md);
+}
+
+.p-4 {
+    padding: var(--space-lg);
+}
+
+.p-5 {
+    padding: var(--space-xl);
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* Compound utility classes for grid/flex examples */
+.grid-box {
+    text-align: center;
+    padding: 10px;
+}
+
+.flex-box {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+.flex-box-30 {
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+}
+
+.flex-box-70 {
+    width: 100px;
+    height: 70px;
+    margin: 5px;
+}
+
+/* Container demo utility */
+.container-demo {
+    background-color: var(--colour-surface-highest);
+    color: var(--colour-surface-lowest);
+    padding: 10px;
+    text-align: center;
+}
