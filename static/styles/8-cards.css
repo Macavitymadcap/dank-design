@@ -1,0 +1,98 @@
+.card {
+    padding: var(--space-md);
+    margin: var(--space-md);
+    color: var(--colour-text); /* Changed to text color by default */
+    background-color: var(--colour-surface-highest); /* Changed to background color */
+    border: 1px solid var(--colour-surface-lowest); /* Added border */
+    box-shadow: 0 8px 16px 0 var(--shadow);
+    transition: 0.3s;
+    max-width: 90%;
+    border-radius: 0.39em;
+    min-width: 10em;
+    min-height: fit-content;
+}
+
+.card:hover {
+    box-shadow: var(--shadow);
+}
+
+/* Color modifier classes for cards */
+.card-primary {
+    background-color: var(--colour-primary);
+    color: var(--colour-background); /* Ensure text is readable */
+    border-color: var(--colour-primary);
+}
+
+.card-secondary {
+    background-color: var(--colour-secondary);
+    color: var(--colour-background);
+    border-color: var(--colour-secondary);
+}
+
+.card-success {
+    background-color: var(--colour-success);
+    color: var(--colour-background);
+    border-color: var(--colour-success);
+}
+
+.card-warning {
+    background-color: var(--colour-warning);
+    color: var(--colour-background);
+    border-color: var(--colour-warning);
+}
+
+.card-danger {
+    background-color: var(--colour-danger);
+    color: var(--colour-background);
+    border-color: var(--colour-danger);
+}
+
+/* Outline variants */
+.card-outline {
+    background-color: transparent;
+}
+
+.card-outline-primary {
+    border: 2px solid var(--colour-primary);
+    color: var(--colour-primary);
+    background-color: transparent;
+}
+
+.card-outline-secondary {
+    border: 2px solid var(--colour-secondary);
+    color: var(--colour-secondary);
+    background-color: transparent;
+}
+
+.card-outline-success {
+    border: 2px solid var(--colour-success);
+    color: var(--colour-success);
+    background-color: transparent;
+}
+
+.card-outline-warning {
+    border: 2px solid var(--colour-warning);
+    color: var(--colour-warning);
+    background-color: transparent;
+}
+
+.card-outline-danger {
+    border: 2px solid var(--colour-danger);
+    color: var(--colour-danger);
+    background-color: transparent;
+}
+
+/* Keep your existing card internal elements */
+.card-header {
+    margin-bottom: var(--space-sm);
+    font-weight: bold;
+}
+
+.card-body {
+    margin-bottom: var(--space-sm);
+}
+
+.card-footer {
+    margin-top: auto;
+    font-size: 0.875rem;
+}

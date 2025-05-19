@@ -5,7 +5,7 @@ class ThemeManager {
         this.html = document.documentElement;
         this.darkLink = htmx.find("#hljs-theme");
         this.lightLink = htmx.find("#hljs-theme-light");
-        this.themeSwitch = htmx.find("#theme-toggle");
+        this.themeSwitch = null; // Will be set in init()
         this.init();
         ThemeManager.instance = this;
     }
@@ -29,8 +29,14 @@ class ThemeManager {
     }
 
     bindThemeToggleEvent() {
+        // Always re-query the toggle in case it was loaded dynamically
+        this.themeSwitch = htmx.find("#theme-toggle");
         if (this.themeSwitch) {
-            this.themeSwitch.addEventListener("change", () => {
+            // Remove previous event listeners by cloning
+            const newSwitch = this.themeSwitch.cloneNode(true);
+            this.themeSwitch.parentNode.replaceChild(newSwitch, this.themeSwitch);
+            this.themeSwitch = newSwitch;
+            htmx.on(this.themeSwitch, "change", () => {
                 this.setTheme(
                     this.html.getAttribute("data-theme") === "dark"
                         ? "light"
@@ -58,10 +64,23 @@ class ThemeManager {
     }
 }
 
-new ThemeManager();
+function highlightCode() {
+    htmx.findAll("pre code").forEach((block) => {
+        // Only highlight if not already highlighted
+        if (!block.classList.contains("hljs")) {
+            window.hljs && window.hljs.highlightElement(block);
+        }
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    htmx.findAll("pre code").forEach((block) => {
-        window.hljs && window.hljs.highlightElement(block);
+    const themeManager = new ThemeManager();
+    highlightCode();
+
+    document.addEventListener("htmx:afterSwap", (e) => {
+        highlightCode();
+        // Re-bind theme toggle event in case header or toggle was swapped in
+        themeManager.bindThemeToggleEvent();
     });
 });
+

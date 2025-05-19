@@ -1,0 +1,210 @@
+<summary>Layout & Grid</summary>
+<div class="content">
+    <h3>Grid System</h3>
+    <p>
+        The grid system uses a 12-column layout that's responsive 
+        and adapts to different screen sizes.
+    </p>
+
+    <div class="card">
+        <h4>Basic Grid</h4>
+        <div class="grid mb-3">
+            <div 
+                class="col-12 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                    col-12
+            </div>
+        </div>
+
+        <div class="grid mb-3">
+            <div 
+                class="col-6 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-6
+            </div>
+            <div 
+                class="col-6 bg-secondary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-6
+            </div>
+        </div>
+
+        <div class="grid mb-3">
+            <div 
+                class="col-4 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-4
+            </div>
+            <div class="col-4 bg-secondary text-surface-lowest p-10 text-center grid-box">
+                col-4
+            </div>
+            <div class="col-4 bg-primary text-surface-lowest p-10 text-center grid-box">
+                col-4
+            </div>
+        </div>
+        
+        <div class="grid mb-3">
+            <div 
+                class="col-3 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-3
+            </div>
+            <div 
+                class="col-3 bg-secondary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-3
+            </div>
+            <div 
+                class="col-3 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-3
+            </div>
+            <div 
+                class="col-3 bg-secondary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-3
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div 
+                class="col-2 bg-secondary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-2
+            </div>
+            <div 
+                class="col-2 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-2
+            </div>
+            <div 
+                class="col-2 bg-secondary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-2
+            </div>
+            <div 
+                class="col-2 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-2
+            </div>
+            <div 
+                class="col-2 bg-secondary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-2
+            </div>
+            <div 
+                class="col-2 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-2
+            </div>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Responsive Grid</h3>
+    <div class="card">
+        <p>
+            The grid system adapts to different screen sizes using 
+            the following classes:
+        </p>
+        <ul>
+            <li><code>.col-*</code> - For all screen sizes</li>
+            <li>
+                <code>.col-md-*</code> - For medium screens and up 
+                (≥768px)
+            </li>
+            <li>
+                <code>.col-sm-*</code> - For small screens (≤576px)
+            </li>
+        </ul>
+        
+        <div class="grid mb-3 mt-3">
+            <div 
+                class="col-6 col-md-4 col-sm-12 bg-primary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-6 col-md-4 col-sm-12
+            </div>
+            <div 
+                class="col-6 col-md-8 col-sm-12 bg-secondary text-surface-lowest p-10 text-center grid-box"
+            >
+                col-6 col-md-8 col-sm-12
+            </div>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Containers</h3>
+    <div class="card">
+        <p>
+            The <code>.container</code> class provides a centered, 
+            responsive container with maximum width.
+        </p>
+        <div class="container bg-primary text-center">
+            .container
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Flex Utilities</h3>
+    <div class="card">
+        <h4>Display Flex</h4>
+        <div class="d-flex mb-3 bg-background h-100">
+            <div class="bg-primary flex-box"></div>
+            <div class="bg-secondary flex-box"></div>
+            <div class="bg-success flex-box"></div>
+        </div>
+        
+        <h4>Flex Direction - Column</h4>
+        <div class="d-flex flex-column mb-3 bg-background h-200">
+            <div class="bg-primary flex-box"></div>
+            <div class="bg-secondary flex-box"></div>
+            <div class="bg-success flex-box"></div>
+        </div>
+        
+        <h4>Justify Content</h4>
+        <div 
+            class="d-flex justify-content-between mb-3 bg-background h-100"
+        >
+            <div class="bg-primary flex-box"></div>
+            <div class="bg-secondary flex-box"></div>
+            <div class="bg-success flex-box"></div>
+        </div>
+        
+        <h4>Align Items</h4>
+        <div class="d-flex align-items-center bg-background h-100">
+            <div class="bg-primary flex-box-30"></div>
+            <div class="bg-secondary flex-box"></div>
+            <div class="bg-success flex-box-70"></div>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Wrapped Row (Flex Layout)</h3>
+    <div class="card">
+        <p>
+            The <code>.wrapped-row</code> class uses flexbox to 
+            create a responsive, evenly spaced row of cards or 
+            swatches. It automatically wraps items and ensures 
+            consistent spacing.
+        </p>
+        <div class="wrapped-row">
+            <div class="card card-outline-primary">
+                <div class="card-header">Wrapped Card 1</div>
+                <div class="card-body">
+                    This card demonstrates the wrapped-row layout.
+                </div>
+            </div>
+
+            <div class="card card-outline-secondary">
+                <div class="card-header">Wrapped Card 2</div>
+                <div class="card-body">
+                    Cards will wrap and space evenly as the screen 
+                    size changes.
+                </div>
+            </div>
+
+            <div class="card card-outline-success">
+                <div class="card-header">Wrapped Card 3</div>
+                <div class="card-body">
+                    Try resizing the window to see the effect.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
