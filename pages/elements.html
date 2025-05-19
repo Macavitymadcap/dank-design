@@ -83,31 +83,7 @@
                 </div>
             </div>
         </fieldset>
-
-        <fieldset> 
-            <legend>Textarea and Select</legend>
-            <div class="grid">
-                <div class="form-group col-6 col col-sm-12">
-                    <label for="textarea">Textarea</label>
-                    <textarea 
-                        id="textarea"
-                        rows="4"
-                        placeholder="Enter multiple lines of text..."
-                    ></textarea>
-                </div>
-
-                <div class="form-group col-6 col-sm-12">
-                    <label for="select">Select</label>
-                    <select id="select">
-                        <option value="">Select an option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                </div>
-            </div>
-        </fieldset>
-
+        
         <fieldset>
             <legend>Checkbox Input .switch</legend>
             <div class="grid">
@@ -177,10 +153,9 @@
                     </label>
                 </div>
             </div>
-
         </fieldset>
-        
-        <fieldset>
+
+                <fieldset>
             <legend>Date/Time Inputs</legend>
             <div class="grid">
                 <div class="form-group col-4 col-md-6 col-sm-12">
@@ -207,6 +182,30 @@
                         type="datetime-local"
                         id="datetime-local"
                     >
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset> 
+            <legend>Textarea and Select</legend>
+            <div class="grid">
+                <div class="form-group col-6 col col-sm-12">
+                    <label for="textarea">Textarea</label>
+                    <textarea 
+                        id="textarea"
+                        rows="4"
+                        placeholder="Enter multiple lines of text..."
+                    ></textarea>
+                </div>
+
+                <div class="form-group col-6 col-sm-12">
+                    <label for="select">Select</label>
+                    <select id="select">
+                        <option value="">Select an option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
                 </div>
             </div>
         </fieldset>
@@ -288,7 +287,12 @@
     <div class="card">
         <p>Inline code: <code>var example = true;</code></p>
         
-        <p>Code block:</p>
+        <p>
+            Code block: (using 
+            <a href="https://highlightjs.org/" target="_blank">
+                highlight.js
+            </a>)
+        </p>
         <pre><code>function exampleFunction() {
     var result = 0;
     for (var i = 0; i < 10; i++) {

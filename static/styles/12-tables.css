@@ -15,15 +15,18 @@ th,
 td {
     padding: var(--space-sm);
     text-align: left;
-    border-bottom: 1px solid var(--colour-surface-highest);
+    border-bottom: 1px solid var(--td-border-colour);
 }
 
 th {
     font-weight: bold;
-    background-color: rgba(204, 204, 204, 0.099);
+    background-color: var(--th-colour);
 }
 
 tr:nth-child(even) {
-    background-color: rgba(204, 204, 204, 0.2);
+    background-color: var(--tr-nth-even-colour);
+}
+tr:nth-child(odd) {
+    background-color: var(--tr-nth-odd-colour);
 }
 
