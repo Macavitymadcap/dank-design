@@ -1,18 +1,20 @@
-@import url('1-variables.css');
-@import url('2-base.css');
-@import url('3-layout.css');
-@import url('4-typography.css');
-@import url('5-theme.css');
-@import url('6-buttons.css');
-@import url('7-code.css');
-@import url('8-cards.css');
-@import url('9-alerts.css');
-@import url('10-badges.css');
-@import url('11-forms.css');
-@import url('12-tables.css');
-@import url('13-details.css');
-@import url('14-lists.css');
-@import url('15-misc.css');
+@import url('1-reset.css');
+@import url('2-variables.css');
+@import url('3-base.css');
+@import url('4-layout.css');
+@import url('5-typography.css');
+@import url('6-theme.css');
+@import url('7-buttons.css');
+@import url('8-code.css');
+@import url('9-cards.css');
+@import url('10-alerts.css');
+@import url('11-badges.css');
+@import url('12-forms.css');
+@import url('13-tables.css');
+@import url('14-details.css');
+@import url('15-lists.css');
+@import url('16-misc.css');
+@import url('17-print.css');
 
 @media (max-width: 768px) {
     .col-md-1 {
