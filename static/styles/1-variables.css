@@ -4,6 +4,7 @@
 
 :root {
     color-scheme: light dark;
+
     /* Theme Colors */
     --colour-text: light-dark(#000000, #ffffff);
     --colour-surface-lowest: light-dark(#333333, #f0f0f0);
@@ -21,8 +22,21 @@
     
     /* Toggle Colours */
     --colour-switch-toggle: light-dark(#fff, #000);
-    --colour-switch-background: light-dark(#000, #fff);
+
+    /* Switch Component */
+    --switch-background: light-dark(var(--colour-surface-lowest), var(--colour-surface-high));
+    --switch-thumb: light-dark(#ffffff, #181a1b);
+    --switch-checked-background: var(--colour-surface-low);
+    --switch-focus-outline: light-dark(rgba(74, 140, 100, 0.5), rgba(127, 255, 212, 0.5));
+    --switch-shadow: light-dark(0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(255, 255, 255, 0.2));
     
+    /* Alert Colors */
+    --colour-alert-primary-bg: light-dark(rgba(74, 110, 181, 0.1), rgba(140, 180, 255, 0.15));
+    --colour-alert-secondary-bg: light-dark(rgba(107, 74, 140, 0.1), rgba(191, 166, 224, 0.15));
+    --colour-alert-success-bg: light-dark(rgba(74, 140, 100, 0.1), rgba(127, 255, 212, 0.15));
+    --colour-alert-warning-bg: light-dark(rgba(217, 164, 65, 0.1), rgba(255, 226, 154, 0.15));
+    --colour-alert-danger-bg: light-dark(rgba(201, 74, 74, 0.1), rgba(255, 179, 179, 0.15));
+
     /* Spacing variables */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;

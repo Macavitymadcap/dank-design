@@ -38,6 +38,15 @@ nav {
     padding: var(--space-md) 0;
 }
 
+
+#theme-toggle {
+    background: linear-gradient(to right, var(--colour-secondary), var(--colour-primary));
+}
+
+#theme-toggle:checked {
+    background: linear-gradient(to right, var(--colour-primary), var(--colour-secondary));
+}
+
 nav menu {
     list-style: none;
     display: flex;
@@ -68,3 +77,34 @@ nav a:hover {
     margin-bottom: var(--space-sm);
 }
 
+/* Compound utility classes for grid/flex examples */
+.grid-box {
+    text-align: center;
+    padding: 10px;
+}
+
+.flex-box {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+
+.flex-box-30 {
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+}
+
+.flex-box-70 {
+    width: 100px;
+    height: 70px;
+    margin: 5px;
+}
+
+/* Container demo utility */
+.container-demo {
+    background-color: var(--colour-surface-highest);
+    color: var(--colour-surface-lowest);
+    padding: 10px;
+    text-align: center;
+}

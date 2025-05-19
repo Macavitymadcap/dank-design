@@ -42,7 +42,7 @@
     <h3 class="mt-4">Form Elements</h3>
     <div class="card">
         <fieldset>
-            <legend>Fieldset</legend>
+            <legend>Text Inputs</legend>
             <div class="grid">
                 <div class="form-group col-3 col-md-6 col-sm-12">
                     <label for="text-input">Text Input</label>
@@ -82,7 +82,10 @@
                     >
                 </div>
             </div>
+        </fieldset>
 
+        <fieldset> 
+            <legend>Textarea and Select</legend>
             <div class="grid">
                 <div class="form-group col-6 col col-sm-12">
                     <label for="textarea">Textarea</label>
@@ -93,7 +96,7 @@
                     ></textarea>
                 </div>
 
-                <div class="form-group col-3 col-sm-12">
+                <div class="form-group col-6 col-sm-12">
                     <label for="select">Select</label>
                     <select id="select">
                         <option value="">Select an option</option>
@@ -102,8 +105,13 @@
                         <option value="3">Option 3</option>
                     </select>
                 </div>
+            </div>
+        </fieldset>
 
-                <div class="form group col-3 col-sm-12">
+        <fieldset>
+            <legend>Checkbox Input .switch</legend>
+            <div class="grid">
+                <div class="form group col-3 col-md-6 col-sm-12">
                     <label for="checkbox">
                         Checkbox Input (.switch)
                         <input 
@@ -112,11 +120,68 @@
                             class="switch"
                         >
                     </label>
-
                 </div>
                 
+                <div class="form group col-3 col-md-6 col-sm-12">
+                    <label for="checkbox">
+                        (.switch switch-primary)
+                        <input 
+                            type="checkbox"
+                            id="checkbox"
+                            class="switch switch-primary"
+                        >
+                    </label>
+                </div>
+
+                <div class="form group col-3 col-md-6 col-sm-12">
+                    <label for="checkbox">
+                        (.switch switch-secondary)
+                        <input 
+                            type="checkbox"
+                            id="checkbox"
+                            class="switch switch-secondary"
+                        >
+                    </label>
+                </div>
+
+                <div class="form group col-3 col-md-6 col-sm-12">
+                    <label for="checkbox">
+                        (.switch switch-success)
+                        <input 
+                            type="checkbox"
+                            id="checkbox"
+                            class="switch switch-success"
+                        >
+                    </label>
+                </div>
+
+                <div class="form group col-3 col-md-6 col-sm-12">
+                    <label for="checkbox">
+                        (.switch switch-warning)
+                        <input 
+                            type="checkbox"
+                            id="checkbox"
+                            class="switch switch-warning"
+                        >
+                    </label>
+                </div>
+
+                <div class="form group col-3 col-md-6 col-sm-12">
+                    <label for="checkbox">
+                        (.switch switch-danger)
+                        <input 
+                            type="checkbox"
+                            id="checkbox"
+                            class="switch switch-danger"
+                        >
+                    </label>
+                </div>
             </div>
-            
+
+        </fieldset>
+        
+        <fieldset>
+            <legend>Date/Time Inputs</legend>
             <div class="grid">
                 <div class="form-group col-4 col-md-6 col-sm-12">
                     <label for="date">Date Input</label>
