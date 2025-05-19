@@ -40,11 +40,11 @@ nav {
 
 
 #theme-toggle {
-    background: linear-gradient(to right, var(--colour-secondary), var(--colour-primary));
+    background: linear-gradient(to right, var(--colour-surface-highest), var(--colour-surface-high));
 }
 
 #theme-toggle:checked {
-    background: linear-gradient(to right, var(--colour-primary), var(--colour-secondary));
+    background: linear-gradient(to left, var(--colour-surface-highest), var(--colour-surface-lowest));
 }
 
 nav menu {

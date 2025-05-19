@@ -50,6 +50,11 @@
     --space-lg: 1.5rem;
     --space-xl: 2rem;
     --space-xxl: 3rem;
+
+    /* Font variables */
+    --font-family-sans: "Lato", Tahoma, sans-serif;
+    --font-family-serif: "Crimson Text", Georgia, serif;
+    --font-family-mono: "Ubuntu Mono", monospace;
 }
 
 html[data-theme="dark"] {

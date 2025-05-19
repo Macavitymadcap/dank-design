@@ -7,7 +7,7 @@
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
-    font-family: "Lato", Tahoma, sans-serif;
+    font-family: var(--font-family-sans);
     transition: all 0.3s;
 }
 
@@ -40,4 +40,34 @@
     background-color: transparent;
     border: 2px solid var(--colour-surface-lowest);
     color: var(--colour-surface-lowest);
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border: 2px solid var(--colour-primary);
+    color: var(--colour-primary);
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    border: 2px solid var(--colour-secondary);
+    color: var(--colour-secondary);
+}
+
+.btn-outline-success {
+    background-color: transparent;
+    border: 2px solid var(--colour-success);
+    color: var(--colour-success);
+}
+
+.btn-outline-warning {
+    background-color: transparent;
+    border: 2px solid var(--colour-warning);
+    color: var(--colour-warning);
+}
+
+.btn-outline-danger {
+    background-color: transparent;
+    border: 2px solid var(--colour-danger);
+    color: var(--colour-danger);
 }
