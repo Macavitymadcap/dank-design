@@ -55,6 +55,23 @@
     --font-family-sans: "Lato", Tahoma, sans-serif;
     --font-family-serif: "Crimson Text", Georgia, serif;
     --font-family-mono: "Ubuntu Mono", monospace;
+
+    /* Card structure */
+    --card-padding: var(--space-md);
+    --card-margin: var(--space-md);
+    --card-border-radius: 0.39em;
+    --card-min-width: 10em;
+    --card-border-width: 1px;
+    --card-outline-border-width: 2px;
+    
+    /* Card shadows */
+    --card-box-shadow: 0 8px 16px 0 var(--shadow);
+    --card-hover-box-shadow: var(--shadow);
+    --card-transition-duration: 0.3s;
+    
+    /* Card internal spacing */
+    --card-header-margin-bottom: var(--space-sm);
+    --card-body-margin-bottom: var(--space-sm);
 }
 
 html[data-theme="dark"] {
