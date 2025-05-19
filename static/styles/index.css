@@ -15,6 +15,7 @@
 @import url('15-lists.css');
 @import url('16-misc.css');
 @import url('17-print.css');
+@import url('18-images.css');
 
 @media (max-width: 768px) {
     .col-md-1 {
