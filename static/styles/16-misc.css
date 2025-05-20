@@ -1,3 +1,4 @@
+/* Utilities */
 .section-title {
     border-bottom: 1px solid var(--colour-surface-highest);
     padding-bottom: var(--space-sm);
@@ -14,30 +15,91 @@
     text-align: center !important;
 }
 
-header .form-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+/* Paragraphs */
+p {
+    margin: var(--space-sm) 0;
+    line-height: 1.5;
 }
 
-/* Make label and input appear in a row */
-header .form-group label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: 0;
+/* Anchors */
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--colour-primary);
+    font-weight: bold;
+    transition: color 0.3s;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: var(--colour-surface-low);
+    text-decoration: underline;
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+a:visited {
+    color: var(--colour-secondary);
+}
+
+a:active {
+    color: var(--colour-success);
 }
 
 /* Navigation */
 nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     padding: var(--space-md) 0;
+    width: 100%;
 }
 
+nav menu {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width:max-content;
+    background: var(--colour-background, #fff);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-radius: 4px;
+    z-index: 1001;
+    padding: var(--space-sm) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+nav li {
+    margin: 0 var(--space-sm);
+}
+
+nav li.form-group {
+    display: flex;
+    align-items: center;
+    margin: 0 var(--space-sm);
+    width: auto;
+    justify-content: center;
+}
 
 #theme-toggle {
     background: linear-gradient(to right, var(--colour-surface-highest), var(--colour-surface-high));
@@ -47,29 +109,24 @@ nav {
     background: linear-gradient(to left, var(--colour-surface-highest), var(--colour-surface-lowest));
 }
 
-nav menu {
-    list-style: none;
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+/* Popover */
+:popover-open {
+    position: fixed;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 0;
+    padding: var(--space-md);
+    z-index: 1000;
+    max-width: min(90vw, 400px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-nav li {
-    margin: 0 var(--space-sm);
-}
 
-nav a {
-    text-decoration: none;
-    color: var(--colour-surface-lowest);
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--colour-primary);
-}
-
+/* Examples */
 .colour-box {
     width: 100%;
     height: 100px;
@@ -77,7 +134,6 @@ nav a:hover {
     margin-bottom: var(--space-sm);
 }
 
-/* Compound utility classes for grid/flex examples */
 .grid-box {
     text-align: center;
     padding: 10px;
@@ -99,13 +155,4 @@ nav a:hover {
     width: 100px;
     height: 70px;
     margin: 5px;
-}
-
-:popover-open {
-    margin: 0 auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: var(--space-md);
 }

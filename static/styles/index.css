@@ -18,6 +18,7 @@
 @import url('18-images.css');
 @import url('19-accessibility.css');
 
+/* Responsive Design - large */
 @media (max-width: 768px) {
     .col-md-1 {
         grid-column: span 1;
@@ -68,6 +69,7 @@
     }
 }
 
+/* Responsive Design - medium */
 @media (max-width: 576px) {
     .col-sm-1 {
         grid-column: span 1;
@@ -118,6 +120,7 @@
     }
 }
 
+/* Large */
 @media (max-width: 768px) {
     .wrapped-row {
         gap: var(--space-sm);
@@ -134,19 +137,7 @@
     }
 }
 
-@media (max-width: 480px) {
-    .wrapped-row {
-        flex-direction: column;
-        gap: var(--space-xs);
-    }
-
-    .wrapped-row>.card {
-        flex-basis: 100%;
-        min-width: 0;
-        max-width: 100%;
-    }
-}
-
+/* Medium */
 @media (max-width: 600px) {
     .table-responsive {
         overflow-x: auto;
@@ -160,6 +151,7 @@
     }
 }
 
+/* Small */
 @media (max-width: 480px) {
     body {
         padding: var(--space-xs);
@@ -198,5 +190,19 @@
 
     th, td {
         padding: var(--space-xs);
+    }
+
+        :popover-open {
+        margin: 0 auto;
+    }
+    .wrapped-row {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .wrapped-row>.card {
+        flex-basis: 100%;
+        min-width: 0;
+        max-width: 100%;
     }
 }

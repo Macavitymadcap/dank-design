@@ -1,75 +1,291 @@
 <section class="container">
     <h1 class="text-center">Dank Design</h1>
+
+
     
-    <p class="text-center text-surface-lowest">
-        A simple pattern library to plug into any Dank project.
-    </p>
+    <nav
+        x-data="{ 
+            atomsMenuIsVisible: false,
+            moleculesMenuIsVisible: false,
+            organismsMenuIsVisible: false,
+            templatesMenuIsVisible: false,
+            pagesMenuIsVisible: false
+        }"
+    >
+        <menu id="main-menu">
+            <li id="home-menu-item">
+                <a href="/index.html">Home</a>
+            </li>
 
-    <div class="form-group">
-        <label for="theme-toggle">
-            <span title="Toggle light/dark theme">🌞 / 🌙</span>
-            <input type="checkbox" class="switch" id="theme-toggle">
-        </label>
-    </div>
+            <li id="atoms-menu-item" class="submenu-container">
+                <button
+                    class="btn btn-outline-primary"
+                    @click="atomsMenuIsVisible = !atomsMenuIsVisible"
+                >
+                    Atoms
+                </button>
+
+                <menu 
+                    id="atoms-submenu"
+                    class="submenu" 
+                    x-show="atomsMenuIsVisible" 
+                    @click.away="atomsMenuIsVisible = false"
+                    @click="atomsMenuIsVisible = false"
+                    hx-boost="true"
+                >
+                    <li>
+                        <a 
+                            hx-get="/pages/atoms/accessibility.html"
+                            hx-target="#main-content"
+                        >
+                            Accessibility
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/atoms/typography.html" 
+                            hx-target="#main-content"
+                        >
+                            Typography
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/atoms/colours.html"
+                            hx-target="#main-content"
+                        >
+                            Colours
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/atoms/dimensions.html"
+                            hx-target="#main-content"
+                        >
+                            Dimensions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/atoms/buttons.html"
+                            hx-target="#main-content"
+                        >
+                            Buttons
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/atoms/inputs.html"
+                            hx-target="#main-content"
+                        >
+                            Inputs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            hx-get="/pages/atoms/code.html"
+                            hx-target="#main-content"
+                        >
+                            Code
+                        </a>
+                    </li>
+                </menu>
+            </li>
+
+            <li id="molecules-menu-item" class="submenu-container">
+                <button 
+                    class="btn btn-outline-primary"
+                    @click="moleculesMenuIsVisible = !moleculesMenuIsVisible"
+                >
+                    Molecules
+                </button>
+
+                <menu
+                    id="molecules-submenu"
+                    class="submenu" 
+                    x-show="moleculesMenuIsVisible" 
+                    @click.away="moleculesMenuIsVisible = false"
+                    @click="moleculesMenuIsVisible = false"
+                    hx-boost="true"
+                >
+                    <li>
+                        <a 
+                            hx-get="/pages/molecules/alerts.html"
+                            hx-target="#main-content"
+                        >
+                            Alerts
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/molecules/badges.html"
+                            hx-target="#main-content"
+                        >
+                            Badges
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/molecules/cards.html"
+                            hx-target="#main-content"
+                        >
+                            Cards
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/molecules/details.html"
+                            hx-target="#main-content"
+                        >
+                            Details
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/molecules/images.html"
+                            hx-target="#main-content"
+                        >
+                            Images
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/molecules/lists.html"
+                            hx-target="#main-content"
+                        >
+                            Lists
+                        </a>
+                    </li>
+                </menu>
+            </li>
+
+            <li id="organisms-menu-item" class="submenu-container">
+                <button 
+                    class="btn btn-outline-primary"
+                    @click="organismsMenuIsVisible = !organismsMenuIsVisible"
+                >
+                    Organisms
+                </button>
+            
+                <menu
+                    id="organisms-submenu"
+                    class="submenu" 
+                    x-show="organismsMenuIsVisible" 
+                    @click.away="organismsMenuIsVisible = false"
+                    @click="organismsMenuIsVisible = false"
+                    hx-boost="true"
+                >
+
+                    <li>
+                        <a 
+                            hx-get="/pages/organisms/tabs.html"
+                            hx-target="#main-content"
+                        >
+                            Tabs
+                        </a>
+                    </li>
+
+                                        <li>
+                        <a 
+                            hx-get="/pages/organisms/tables.html"
+                            hx-target="#main-content"
+                        >
+                            Tables
+                        </a>
+                    </li>
+                </menu>
+            </li>
+
+            <li id="templates-menu-item" class="submenu-container">
+                <button 
+                    class="btn btn-outline-primary"
+                    @click="templatesMenuIsVisible = !templatesMenuIsVisible"
+                >
+                    Templates
+                </button>
+
+                <menu 
+                    id="templates-submenu"
+                    class="submenu" 
+                    x-show="templatesMenuIsVisible" 
+                    @click.away="templatesMenuIsVisible = false"
+                    @click="templatesMenuIsVisible = false"
+                    hx-boost="true"
+                >
+                    <li>
+                        <a 
+                            hx-get="/pages/templates/grid.html"
+                            hx-target="#main-content"
+                        >
+                            Grid
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/templates/flex.html"
+                            hx-target="#main-content"
+                        >
+                            Flex
+                        </a>
+                    </li>
+
+                    <li>
+                        <a 
+                            hx-get="/pages/templates/containers.html"
+                            hx-target="#main-content"
+                        >
+                            Containers
+                        </a>
+                    </li>
+
+                </menu>
+            </li>
+
+            <li id="pages-menu-item" class="submenu-container">
+                <button 
+                    class="btn btn-outline-primary"
+                    @click="pagesMenuIsVisible = !pagesMenuIsVisible"
+                >
+                    Pages
+                </button>
+
+                <menu
+                    id="pages-submenu"
+                    class="submenu" 
+                    x-show="pagesMenuIsVisible" 
+                    @click.away="pagesMenuIsVisible = false"
+                    @click="pagesMenuIsVisible = false"
+                    hx-boost="true"
+                >
+                    <li>
+                        <a 
+                            hx-get="/pages/pages/basic.html"
+                            hx-target="#main-content"
+                        >
+                            Basic
+                        </a>
+                    </li>
+
+                </menu>
+            </li>
+
+            <li>
+                <label for="theme-toggle" title="Toggle light/dark mode">
+                    <input type="checkbox" class="switch" id="theme-toggle">
+                </label>
+            </li>
+        </menu>
+    </nav>
 </section>
-
-<nav class="container">
-    <menu 
-    x-data="{ openDetails: function(id) { htmx.find(id).open = 'true' } }" 
-    class="menu">
-        <li>
-            <a href="#colours" @click="openDetails('#colours')">
-                Colours
-            </a>
-        </li>
-        
-        <li>
-            <a href="#layout" @click="openDetails('#layout')">
-                Layout
-            </a>
-        </li>
-        
-        <li>
-            <a href="#animations" @click="openDetails('#animations')">
-                Animations
-            </a>
-        </li>
-
-        <li>
-            <a href="#accessibility" @click="openDetails('#accessibility')">
-                Accessibility
-            </a>
-        </li>
-        
-        <li>
-            <a href="#utilities" @click="openDetails('#utilities')">
-                Utilities
-            </a>
-        </li>
-        
-        <li>
-            <a href="#typography" @click="openDetails('#typography')">
-                Typography
-            </a>
-        </li>
-
-
-        <li>
-            <a href="#images" @click="openDetails('#images')">
-                Images
-            </a>
-        </li>
-
-        <li>
-            <a href="#elements" @click="openDetails('#elements')">
-                Elements
-            </a>
-        </li>
-
-        <li>
-            <a href="#components" @click="openDetails('#components')">
-                Components
-            </a>
-        </li>
-    </menu>
-</nav>
