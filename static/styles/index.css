@@ -1,19 +1,24 @@
-@import url('1-variables.css');
-@import url('2-base.css');
-@import url('3-layout.css');
-@import url('4-typography.css');
-@import url('5-theme.css');
-@import url('6-buttons.css');
-@import url('7-code.css');
-@import url('8-cards.css');
-@import url('9-alerts.css');
-@import url('10-badges.css');
-@import url('11-forms.css');
-@import url('12-tables.css');
-@import url('13-details.css');
-@import url('14-lists.css');
-@import url('15-misc.css');
+@import url('1-reset.css');
+@import url('2-variables.css');
+@import url('3-base.css');
+@import url('4-layout.css');
+@import url('5-typography.css');
+@import url('6-theme.css');
+@import url('7-buttons.css');
+@import url('8-code.css');
+@import url('9-cards.css');
+@import url('10-alerts.css');
+@import url('11-badges.css');
+@import url('12-forms.css');
+@import url('13-tables.css');
+@import url('14-details.css');
+@import url('15-lists.css');
+@import url('16-misc.css');
+@import url('17-print.css');
+@import url('18-images.css');
+@import url('19-accessibility.css');
 
+/* Responsive Design - large */
 @media (max-width: 768px) {
     .col-md-1 {
         grid-column: span 1;
@@ -64,6 +69,7 @@
     }
 }
 
+/* Responsive Design - medium */
 @media (max-width: 576px) {
     .col-sm-1 {
         grid-column: span 1;
@@ -114,6 +120,7 @@
     }
 }
 
+/* Large */
 @media (max-width: 768px) {
     .wrapped-row {
         gap: var(--space-sm);
@@ -130,19 +137,7 @@
     }
 }
 
-@media (max-width: 480px) {
-    .wrapped-row {
-        flex-direction: column;
-        gap: var(--space-xs);
-    }
-
-    .wrapped-row>.card {
-        flex-basis: 100%;
-        min-width: 0;
-        max-width: 100%;
-    }
-}
-
+/* Medium */
 @media (max-width: 600px) {
     .table-responsive {
         overflow-x: auto;
@@ -156,6 +151,7 @@
     }
 }
 
+/* Small */
 @media (max-width: 480px) {
     body {
         padding: var(--space-xs);
@@ -194,5 +190,19 @@
 
     th, td {
         padding: var(--space-xs);
+    }
+
+        :popover-open {
+        margin: 0 auto;
+    }
+    .wrapped-row {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .wrapped-row>.card {
+        flex-basis: 100%;
+        min-width: 0;
+        max-width: 100%;
     }
 }

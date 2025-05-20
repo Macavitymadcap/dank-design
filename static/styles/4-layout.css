@@ -220,6 +220,7 @@ section {
 
 /* Flexbox row layout for wrapping cards and colour swatches */
 .wrapped-row {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
@@ -229,8 +230,8 @@ section {
 }
 
 .wrapped-row > .card {
-    flex: 1 1 260px;
+    flex: 1 1 0;
     min-width: 180px;
     margin: 0;
-    align-self: stretch;
+    /* align-self: stretch; */
 }

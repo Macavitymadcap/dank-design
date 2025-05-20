@@ -1,0 +1,269 @@
+<article class="content">
+    <h2 class="text-center">Images & Media</h2>
+    <p>
+        All images used in this documentation are sourced from
+        <a href="https://picsum.photos/" target="_blank">
+            Lorem Picsum
+        </a>.
+    </p>
+
+    <h3>Responsive Images</h3>
+
+    <div class="card">
+        <h4>Basic Responsive Image</h4>
+
+        <p>
+            By default, all images are responsive with 
+            <code>max-width: 100%; height: auto;</code>
+        </p>
+
+        <img
+            src="https://picsum.photos/800/400"
+            alt="Random landscape image"
+            width="800"
+            height="400"
+        >
+        <pre
+        >
+<code>// Basic responsive image
+&lt;img src="image.jpg" alt="Description"&gt;</code></pre>
+    </div>
+
+    <h3 class="mt-4">Object-fit Utilities</h3>
+
+    <div class="wrapped-row">
+
+        <div class="card">
+            <h4>Object-fit: Cover</h4>
+
+            <div style="height: 200px; width: 100%; overflow: hidden">
+                <img
+                    src="https://picsum.photos/600/400?random=1"
+                    alt="Object-fit cover example"
+                    class="object-cover"
+                    style="width: 100%; height: 100%"
+                >
+            </div>
+
+            <p class="mt-2">
+                <code>.object-cover</code> - Fills the container while
+                maintaining aspect ratio, may crop the image
+            </p>
+        </div>
+
+        <div class="card">
+            <h4>Object-fit: Contain</h4>
+            <div style="height: 200px; width: 100%; background-color: var(--colour-surface-high)">
+                <img
+                    src="https://picsum.photos/600/400?random=2"
+                    alt="Object-fit contain example"
+                    class="object-contain"
+                    style="width: 100%; height: 100%"
+                >
+            </div>
+            <p class="mt-2">
+                <code>.object-contain</code> - Ensures the entire image is
+                visible, may leave empty space
+            </p>
+        </div>
+
+        <div class="card">
+            <h4>Object-fit: Fill</h4>
+            <div style="height: 200px; width: 100%">
+                <img
+                    src="https://picsum.photos/600/400?random=3"
+                    alt="Object-fit fill example"
+                    class="object-fill"
+                    style="width: 100%; height: 100%"
+                >
+            </div>
+            <p class="mt-2">
+                <code>.object-fill</code> - Stretches the image to fill the
+                container regardless of aspect ratio
+            </p>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Aspect Ratio Containers</h3>
+    <div class="wrapped-row">
+        <div class="card">
+            <h4>16:9 Aspect Ratio</h4>
+            <div class="aspect-ratio-container aspect-16-9">
+                <img
+                    src="https://picsum.photos/800/450?random=4"
+                    alt="16:9 aspect ratio image"
+                    class="object-cover"
+                >
+            </div>
+            <pre
+            >
+<code>&lt;div class="aspect-ratio-container aspect-16-9"&gt;
+    &lt;img src="image.jpg" alt="Description" class="object-cover"&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="card">
+            <h4>4:3 Aspect Ratio</h4>
+            <div class="aspect-ratio-container aspect-4-3">
+                <img
+                    src="https://picsum.photos/800/600?random=5"
+                    alt="4:3 aspect ratio image"
+                    class="object-cover"
+                >
+            </div>
+            <pre
+            >
+<code>&lt;div class="aspect-ratio-container aspect-4-3"&gt;
+    &lt;img src="image.jpg" alt="Description" class="object-cover"&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="card">
+            <h4>1:1 Aspect Ratio (Square)</h4>
+            <div class="aspect-ratio-container aspect-1-1">
+                <img
+                    src="https://picsum.photos/600/600?random=6"
+                    alt="1:1 aspect ratio image"
+                    class="object-cover"
+                >
+            </div>
+            <pre
+            >
+<code>&lt;div class="aspect-ratio-container aspect-1-1"&gt;
+    &lt;img src="image.jpg" alt="Description" class="object-cover"&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Image Filters</h3>
+    <div class="wrapped-row">
+        <div class="card">
+            <h4>Original Image</h4>
+            <img
+                src="https://picsum.photos/600/400?random=7"
+                alt="Original image without filters"
+                class="w-100"
+            >
+            <p class="mt-2">Original image without filters</p>
+        </div>
+
+        <div class="card">
+            <h4>Grayscale Filter</h4>
+            <img
+                src="https://picsum.photos/600/400?random=7"
+                alt="Grayscale filter"
+                class="w-100 img-filter-grayscale"
+            >
+            <p class="mt-2"><code>.img-filter-grayscale</code></p>
+        </div>
+
+        <div class="card">
+            <h4>Sepia Filter</h4>
+            <img
+                src="https://picsum.photos/600/400?random=7"
+                alt="Sepia filter"
+                class="w-100 img-filter-sepia"
+            >
+            <p class="mt-2"><code>.img-filter-sepia</code></p>
+        </div>
+
+        <div class="card">
+            <h4>Blur Filter</h4>
+            <img
+                src="https://picsum.photos/600/400?random=7"
+                alt="Blur filter"
+                class="w-100 img-filter-blur"
+            >
+            <p class="mt-2"><code>.img-filter-blur</code></p>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Image Gallery</h3>
+    <div class="card">
+        <h4>Responsive Image Gallery</h4>
+        <div class="img-gallery">
+            <img
+                src="https://picsum.photos/300/300?random=8"
+                alt="Gallery image 1"
+            >
+            <img
+                src="https://picsum.photos/300/300?random=9"
+                alt="Gallery image 2"
+            >
+            <img
+                src="https://picsum.photos/300/300?random=10"
+                alt="Gallery image 3"
+            >
+            <img
+                src="https://picsum.photos/300/300?random=11"
+                alt="Gallery image 4"
+            >
+            <img
+                src="https://picsum.photos/300/300?random=12"
+                alt="Gallery image 5"
+            >
+            <img
+                src="https://picsum.photos/300/300?random=13"
+                alt="Gallery image 6"
+            >
+        </div>
+        <pre
+        >
+<code>&lt;div class="img-gallery"&gt;
+    &lt;img src="image1.jpg" alt="Description 1"&gt;
+    &lt;img src="image2.jpg" alt="Description 2"&gt;
+    ...
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h3 class="mt-4">Background Images</h3>
+    <div class="wrapped-row">
+        <div class="card">
+            <h4>Background Cover</h4>
+            <div
+                class="bg-cover"
+                style="background-image: url('https://picsum.photos/800/400?random=14'); height: 200px; border-radius: 4px"
+            >
+            </div>
+            <pre
+            >
+<code>&lt;div 
+    class="bg-cover" 
+    style="background-image: url('image.jpg'); height: 200px;"
+&gt;&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="card">
+            <h4>Background Contain</h4>
+            <div
+                class="bg-contain"
+                style="background-image: url('https://picsum.photos/800/400?random=15'); height: 200px; border: 1px solid var(--colour-surface-lowest); border-radius: 4px"
+            >
+            </div>
+            <pre
+            >
+<code>&lt;div 
+    class="bg-contain" 
+    style="background-image: url('image.jpg'); height: 200px;"
+&gt;&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Lazy-Loading Placeholders</h3>
+    <div class="card">
+        <h4>Image Loading Placeholder</h4>
+        <p>Demonstration of a placeholder while images load:</p>
+        <div class="aspect-ratio-container aspect-16-9">
+            <div class="img-placeholder"></div>
+        </div>
+        <p class="mt-2">
+            In actual implementation, this would be replaced by JavaScript with
+            the real image once loaded.
+        </p>
+        <pre
+        >
+<code>&lt;div class="aspect-ratio-container aspect-16-9"&gt;
+    &lt;div class="img-placeholder"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+</article>

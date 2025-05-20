@@ -1,6 +1,8 @@
-<summary>Components</summary>
-<div class="content">
-    <h3>Cards</h3>
+<article class="content">
+    <h2 class="text-center">Cards</h2>
+    
+    <h3>Basic Card</h3>
+    
     <div class="wrapped-row">
         <div class="card">
             <div class="card-header">Card Title</div>
@@ -28,6 +30,27 @@
             <div class="card-footer">Last updated 3 mins ago</div>
         </div>
 
+    </div>
+
+    <h3 class="mt-4">Card Hover Effect</h3>
+
+    <section class="wrapped-row">
+        <div class="card">
+            <p>Cards have a shadow effect that changes on hover:</p>
+            <pre><code>.card {
+    box-shadow: 0 4px 8px 0 var(--shadow);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: var(--shadow);
+}</code></pre>
+        </div>
+    </section>
+    
+    <h3>Card Variants</h3>
+    
+    <section class="wrapped-row">
         <div class="card card-primary">
             <div class="card-header">Card Primary</div>
             <div class="card-body">
@@ -97,97 +120,5 @@
                 <code>class="card card-outline-danger"</code>
             </div>
         </div>
-    </div>
-
-    <h3 class="mt-4">Alerts</h3>
-    <div class="alert alert-primary">
-        <strong>Primary Alert!</strong> 
-        This is a primary alert message.
-    </div>
-    
-    <div class="alert alert-secondary">
-        <strong>Secondary Alert!</strong> 
-        This is a secondary alert message.
-    </div>
-    
-    <div class="alert alert-success">
-        <strong>Success!</strong> 
-        This is a success alert message.
-    </div>
-    
-    <div class="alert alert-warning">
-        <strong>Warning!</strong> 
-        This is a warning alert message.
-    </div>
-    
-    <div class="alert alert-danger">
-        <strong>Danger!</strong> 
-        This is a danger alert message.
-    </div>
-
-    <h3 class="mt-4">Badges</h3>
-    <div class="card">
-        <p>
-            Default Badge
-            <span class="badge">Badge</span>
-        </p>
-        <p>
-            Primary Badge
-            <span class="badge badge-primary">Primary</span>
-        </p>
-        <p>
-            Secondary Badge
-            <span class="badge badge-secondary">Secondary</span>
-        </p>
-        <p>
-            Success Badge
-            <span class="badge badge-success">Success</span>
-        </p>
-        <p>
-            Warning Badge
-            <span class="badge badge-warning">Warning</span>
-        </p>
-        <p>
-            Danger Badge
-            <span class="badge badge-danger">Danger</span>
-        </p>
-    </div>
-
-    <h3 class="mt-4">Accordion</h3>
-    <div class="card">
-        <details>
-            <summary>Accordion Item #1</summary>
-            <div class="content">
-                <p>
-                    This is the content of the first accordion item. 
-                    You can put any content here, including text, 
-                    images, lists, or other HTML elements.
-                </p>
-            </div>
-        </details>
-        
-        <details>
-            <summary>Accordion Item #2</summary>
-            <div class="content">
-                <p>
-                    This is the content of the second accordion 
-                    item. Accordions are useful for presenting 
-                    information in a compact way, allowing users to 
-                    expand only the sections they're interested in.
-                </p>
-            </div>
-        </details>
-        
-        <details>
-            <summary>Accordion Item #3</summary>
-            <div class="content">
-                <p>
-                    This is the content of the third accordion item. 
-                    Accordions work well for FAQs, specifications, 
-                    or any content that can be logically divided into
-                    sections.
-                </p>
-            </div>
-        </details>
-    </div>
-</div>
+    </section>
+</article>

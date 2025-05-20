@@ -1,0 +1,120 @@
+<article class="content">
+    <h2 class="text-center">Tabs</h2>
+
+    <div class="card">
+        <div 
+            class="tabs mt-3" 
+            role="tablist"
+            x-data="{ 
+                getAllTabs: function() { return document.querySelectorAll(`[role='tab']`) },
+                deselectAllTabs: function() { 
+                    this.getAllTabs().forEach(tab => {
+                        tab.setAttribute('aria-selected', 'false');
+                        document.getElementById(tab.getAttribute('aria-controls')).hidden = true;
+                    });
+                },
+                selectTab: function(tab) { 
+                    tab.setAttribute('aria-selected', 'true');
+                    document.getElementById(tab.getAttribute('aria-controls')).hidden = false;
+                },
+                handleKeyDown: function(e) {
+                    let index = Array.from(this.getAllTabs()).indexOf(e.target);
+                    
+                    if (e.key === 'ArrowRight') {
+                        index = (index + 1) % this.getAllTabs().length;
+                        this.getAllTabs()[index].click();
+                        this.getAllTabs()[index].focus();
+                    } else if (e.key === 'ArrowLeft') {
+                        index = (index - 1 + this.getAllTabs().length) % this.getAllTabs().length;
+                        this.getAllTabs()[index].click();
+                        this.getAllTabs()[index].focus();
+                    }
+                },
+            }"
+        >
+            <button 
+                id="tab1" 
+                class="tab-button btn" 
+                role="tab" 
+                aria-selected="true" 
+                aria-controls="tab1-panel"
+                @click="deselectAllTabs(); selectTab($event.target)"
+                @keydown="handleKeyDown($event)"
+            >
+                Tab 1
+            </button>
+            
+            <button 
+                id="tab2" 
+                class="tab-button btn" 
+                role="tab" 
+                aria-selected="false" 
+                aria-controls="tab2-panel"
+                @click="deselectAllTabs(); selectTab($event.target)"
+                @keydown="handleKeyDown($event)"
+            >
+                Tab 2
+            </button>
+
+            <button 
+                id="tab3" 
+                class="tab-button btn" 
+                role="tab" 
+                aria-selected="false" 
+                aria-controls="tab3-panel"
+                @click="deselectAllTabs(); selectTab($event.target)"
+                @keydown="handleKeyDown($event)"
+            >
+                Tab 3
+            </button>
+        </div>
+
+        <div
+            id="tab1-panel" 
+            role="tabpanel" 
+            aria-labelledby="tab1" 
+            class="tab-panel"
+        >
+            <p>
+                Tab 1 content. This panel is keyboard navigable using the 
+                <kbd>ArrowRight</kbd> and <kbd>ArrowLeft</kbd> keys.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Molestiae atque maiores dignissimos sequi cum recusandae culpa 
+                cupiditate, consectetur aperiam, iusto aspernatur deleniti. 
+            </p>
+        </div>
+        
+        <div 
+            id="tab2-panel" 
+            role="tabpanel" 
+            aria-labelledby="tab2" 
+            class="tab-panel"
+            hidden
+        >
+            <p>
+                Tab 2 content. This panel is keyboard navigable using the 
+                <kbd>ArrowRight</kbd> and <kbd>ArrowLeft</kbd> keys.
+                Aspernatur quia pariatur nisi officiis odit impedit soluta 
+                sapiente, expedita ullam obcaecati beatae, tempora fugit 
+                voluptatem fuga? 
+            </p>
+        </div>
+        
+        <div 
+            id="tab3-panel" 
+            role="tabpanel" 
+            aria-labelledby="tab3" 
+            class="tab-panel"
+            hidden
+        >
+            <p>
+                Tab 3 content. This panel is keyboard navigable using the 
+                <kbd>ArrowRight</kbd> and <kbd>ArrowLeft</kbd> keys.
+                Nulla excepturi, corporis voluptatum deserunt,
+                ipsam optio repellat molestiae maxime quibusdam architecto 
+                eaque eligendi quae inventore illum animi nobis minus 
+                consectetur facilis odit ducimus dolorem!
+            </p>
+        </div>
+    </div>
+</article>
