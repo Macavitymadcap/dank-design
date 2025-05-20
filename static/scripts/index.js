@@ -64,6 +64,9 @@ class ThemeManager {
     }
 }
 
+const isGitHubPages = window.location.hostname.includes('github.io');
+const basePath = isGitHubPages ? '/dank-design/' : '/';
+
 function highlightCode() {
     htmx.findAll("pre code").forEach((block) => {
         // Only highlight if not already highlighted
@@ -77,10 +80,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeManager = new ThemeManager();
     highlightCode();
 
+    htmx.confg.baseURL = basePath;
+
     document.addEventListener("htmx:afterSwap", (e) => {
         highlightCode();
         // Re-bind theme toggle event in case header or toggle was swapped in
         themeManager.bindThemeToggleEvent();
+    });
+
+    document.addEventListener("htmx:beforeRequest", (e) => {
+        const url = evt.detail.requestConfig.path;
+        if (!url.startsWith('http') && !url.startsWith('/dank-design/') && url.startsWith('/')) {
+            evt.detail.requestConfig.path = basePath + url.substring(1);
+        }
     });
 });
 
