@@ -10,44 +10,47 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
         >
+
         <link
             id="hljs-theme-light"
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
             disabled
         >
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/static/assets/apple-touch-icon.png"
+
+        <link 
+            rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"
         >
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/static/assets/favicon-32x32.png"
+        <link 
+            rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"
         >
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/static/assets/favicon-16x16.png"
+        <link 
+            rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"
         >
-        <link rel="manifest" href="/static/assets/site.webmanifest">
+        
+        <link rel="manifest" href="/site.webmanifest">
+
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
             defer
         ></script>
+        
         <script src="//unpkg.com/alpinejs" defer></script>
+        
         <script
             src="https://unpkg.com/htmx.org@2.0.4"
             integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
             crossorigin="anonymous"
         ></script>
+        
         <script src="static/scripts/index.js" defer></script>
     </head>
 
     <body>
+        <a href="#main-content" class="skip-to-content">
+            Skip to content
+        </a>
+
         <header
             id="header"
             hx-get="components/header.html"
@@ -55,7 +58,7 @@
         >
         </header>
 
-        <main class="container">
+        <main id="main-content" class="container">
             <details
                 id="colours"
                 hx-get="pages/colours.html"
@@ -80,6 +83,13 @@
             <details
                 id="typography"
                 hx-get="pages/typography.html"
+                hx-trigger="revealed"
+            >
+            </details>
+
+            <details
+                id="accessibility"
+                hx-get="pages/accessibility.html"
                 hx-trigger="revealed"
             >
             </details>

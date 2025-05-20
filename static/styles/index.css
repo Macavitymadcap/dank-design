@@ -16,6 +16,7 @@
 @import url('16-misc.css');
 @import url('17-print.css');
 @import url('18-images.css');
+@import url('19-accessibility.css');
 
 @media (max-width: 768px) {
     .col-md-1 {

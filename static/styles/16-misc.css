@@ -100,3 +100,12 @@ nav a:hover {
     height: 70px;
     margin: 5px;
 }
+
+:popover-open {
+    margin: 0 auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: var(--space-md);
+}
